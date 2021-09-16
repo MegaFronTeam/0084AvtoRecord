@@ -8,6 +8,7 @@ module.exports = [
 	'./gulp/tasks/svg',
 	'./gulp/tasks/file',
 	'./gulp/tasks/copylibs',
+	'./gulp/tasks/react',
 	// './gulp/tasks/cleanimg',
 	'./gulp/tasks/img-responsive',
 	// './gulp/tasks/font',

@@ -6,24 +6,29 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-let div = document.createElement('div');
-div.style.overflowY = 'scroll';
-div.style.width = '50px';
-div.style.height = '50px'; // мы должны вставить элемент в документ, иначе размеры будут равны 0
+let scrollWidth;
 
-document.body.append(div);
-let scrollWidth = div.offsetWidth - div.clientWidth;
-let root = document.documentElement;
-root.style.setProperty('--spacing-end', scrollWidth + 'px');
-div.remove();
+function getScrollWidth(scrollWidth) {
+	let div = document.createElement('div');
+	div.style.overflowY = 'scroll';
+	div.style.width = '50px';
+	div.style.height = '50px';
+	document.body.append(div);
+	scrollWidth = div.offsetWidth - div.clientWidth;
+	let root = document.documentElement;
+	root.style.setProperty('--spacing-end', scrollWidth + 'px');
+	div.remove();
+}
+
+getScrollWidth(scrollWidth);
 const JSCCommon = {
 	btnToggleMenuMobile: [].slice.call(document.querySelectorAll(".toggle-menu-mobile--js")),
 	menuMobile: document.querySelector(".menu-mobile--js"),
 	menuMobileLink: [].slice.call(document.querySelectorAll(".menu-mobile--js ul li a")),
 
 	modalCall() {
-		const link = ".link-modal-js";
-		Fancybox.bind(link, {
+		let modalLinksClass = ".link-modal-js";
+		Fancybox.bind(modalLinksClass, {
 			arrows: false,
 			infobar: false,
 			touch: false,
@@ -34,40 +39,33 @@ const JSCCommon = {
 			l10n: {
 				Escape: "Закрыть",
 				NEXT: "Вперед",
-				PREV: "Назад" // PLAY_START: "Start slideshow",
-				// PLAY_STOP: "Pause slideshow",
-				// FULL_SCREEN: "Full screen",
-				// THUMBS: "Thumbnails",
-				// DOWNLOAD: "Download",
-				// SHARE: "Share",
-				// ZOOM: "Zoom"
-
-			} // beforeLoad: function () {
-			// 	root.style.setProperty('--spacing-end', scrollWidth + 'px');
-			// },
-			// afterClose: function () {
-			// 	root.style.setProperty('--spacing-end', null);
+				PREV: "Назад"
+			} // on: {
+			// 	initCarousel: (fancybox, slide) => {
+			//
+			// 	},
+			// 	destroy: (fancybox, slide) => {
+			//
+			// 	},
 			// },
 
-		}); // $(link).fancybox({
-		// });
-
+		});
 		$(".modal-close-js").click(function () {
 			Fancybox.close();
 		}); // fancybox.defaults.backFocus = false;
 
-		const linkModal = document.querySelectorAll(link);
+		let modalLinks = document.querySelectorAll(modalLinksClass);
 
 		function addData() {
-			linkModal.forEach(element => {
-				element.addEventListener('click', () => {
+			for (let link of modalLinks) {
+				link.addEventListener('click', () => {
 					let modal = document.querySelector(element.getAttribute("href"));
-					const data = element.dataset;
+					let data = element.dataset;
 
 					function setValue(val, elem) {
 						if (elem && val) {
-							const el = modal.querySelector(elem);
-							el.tagName == "INPUT" ? el.value = val : el.innerHTML = val; // console.log(modal.querySelector(elem).tagName)
+							let el = modal.querySelector(elem);
+							el.tagName == "INPUT" ? el.value = val : el.innerHTML = val;
 						}
 					}
 
@@ -76,10 +74,10 @@ const JSCCommon = {
 					setValue(data.btn, '.btn');
 					setValue(data.order, '.order');
 				});
-			});
+			}
 		}
 
-		if (linkModal) addData();
+		if (modalLinks) addData();
 	},
 
 	// /modalCall
@@ -129,64 +127,26 @@ const JSCCommon = {
 		});
 	},
 
-	// /mobileMenu
-	// tabs  .
+	//
 	tabscostume(tab) {
-		// const tabs = document.querySelectorAll(tab);
-		// const indexOf = element => Array.from(element.parentNode.children).indexOf(element);
-		// tabs.forEach(element => {
-		// 	let tabs = element;
-		// 	const tabsCaption = tabs.querySelector(".tabs__caption");
-		// 	const tabsBtn = tabsCaption.querySelectorAll(".tabs__btn");
-		// 	const tabsWrap = tabs.querySelector(".tabs__wrap");
-		// 	const tabsContent = tabsWrap.querySelectorAll(".tabs__content");
-		// 	const random = Math.trunc(Math.random() * 1000);
-		// 	tabsBtn.forEach((el, index) => {
-		// 		const data = `tab-content-${random}-${index}`;
-		// 		el.dataset.tabBtn = data;
-		// 		const content = tabsContent[index];
-		// 		content.dataset.tabContent = data;
-		// 		if (!content.dataset.tabContent == data) return;
-		// 		const active = content.classList.contains('active') ? 'active' : '';
-		// 		// console.log(el.innerHTML);
-		// 		content.insertAdjacentHTML("beforebegin", `<div class="tabs__btn-accordion  btn btn-primary  mb-1 ${active}" data-tab-btn="${data}">${el.innerHTML}</div>`)
-		// 	})
-		// 	tabs.addEventListener('click', function (element) {
-		// 		const btn = element.target.closest(`[data-tab-btn]:not(.active)`);
-		// 		if (!btn) return;
-		// 		const data = btn.dataset.tabBtn;
-		// 		const tabsAllBtn = this.querySelectorAll(`[data-tab-btn`);
-		// 		const content = this.querySelectorAll(`[data-tab-content]`);
-		// 		tabsAllBtn.forEach(element => {
-		// 			element.dataset.tabBtn == data
-		// 				? element.classList.add('active')
-		// 				: element.classList.remove('active')
-		// 		});
-		// 		content.forEach(element => {
-		// 			element.dataset.tabContent == data
-		// 				? (element.classList.add('active'), element.previousSibling.classList.add('active'))
-		// 				: element.classList.remove('active')
-		// 		});
-		// 	})
-		// })
 		$('.' + tab + '__caption').on('click', '.' + tab + '__btn:not(.active)', function (e) {
 			$(this).addClass('active').siblings().removeClass('active').closest('.' + tab).find('.' + tab + '__content').hide().removeClass('active').eq($(this).index()).fadeIn().addClass('active');
 		});
 	},
 
-	// /tabs
 	inputMask() {
-		// mask for input
-		let InputTel = [].slice.call(document.querySelectorAll('input[type="tel"]'));
-		InputTel.forEach(element => element.setAttribute("pattern", "[+][0-9]{1}[(][0-9]{3}[)][0-9]{3}-[0-9]{2}-[0-9]{2}"));
+		let InputTel = document.querySelectorAll('input[type="tel"]');
+
+		for (let input of InputTel) {
+			input.setAttribute("pattern", "[+][0-9]{1}[(][0-9]{3}[)][0-9]{3}-[0-9]{2}-[0-9]{2}");
+		}
+
 		Inputmask("+9(999)999-99-99").mask(InputTel);
 	},
 
 	// /inputMask
 	ifie() {
-		var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
-
-		if (isIE11) {
+		if (!!window.MSInputMethodContext && !!document.documentMode) {
 			document.body.insertAdjacentHTML("beforeend", '<div class="browsehappy">	<p class=" container">К сожалению, вы используете устаревший браузер. Пожалуйста, <a href="http://browsehappy.com/" target="_blank">обновите ваш браузер</a>, чтобы улучшить производительность, качество отображаемого материала и повысить безопасность.</p></div>');
 		}
 	},
@@ -237,13 +197,9 @@ const JSCCommon = {
 	},
 
 	heightwindow() {
-		// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-		let vh = window.innerHeight * 0.01; // Then we set the value in the --vh custom property to the root of the document
-
-		document.documentElement.style.setProperty('--vh', "".concat(vh, "px")); // We listen to the resize event
-
+		let vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
 		window.addEventListener('resize', () => {
-			// We execute the same script as before
 			let vh = window.innerHeight * 0.01;
 			document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
 		}, {
@@ -251,49 +207,20 @@ const JSCCommon = {
 		});
 	},
 
-	animateScroll() {
-		$(document).on('click', " .menu li a, .scroll-link", function () {
-			const elementClick = $(this).attr("href");
+	animateScroll(topShift = 80) {
+		$(document).on('click', ".scroll-link", function () {
+			event.preventDefault();
+			let targetSelector = $(this).attr("href");
 
-			if (!document.querySelector(elementClick)) {
-				$(this).attr("href", '/' + elementClick);
-			} else {
-				let destination = $(elementClick).offset().top;
-				$('html, body').animate({
-					scrollTop: destination - 80
-				}, 0);
-				return false;
-			}
-		});
-	},
+			if (!document.querySelector(targetSelector)) {
+				$(this).attr("href", '/' + targetSelector);
+			} //
 
-	getCurrentYear(el) {
-		let now = new Date();
-		let currentYear = document.querySelector(el);
-		if (currentYear) currentYear.innerText = now.getFullYear();
-	},
 
-	toggleShow(toggle, drop) {
-		let catalogDrop = drop;
-		let catalogToggle = toggle;
-		$(document).on('click', catalogToggle, function () {
-			$(this).toggleClass('active').next().fadeToggle('fast', function () {
-				$(this).toggleClass("active");
-			});
-		});
-		document.addEventListener('mouseup', event => {
-			let container = event.target.closest(catalogDrop + ".active"); // (1)
-
-			let link = event.target.closest(catalogToggle); // (1)
-
-			if (!container || !catalogToggle) {
-				$(catalogDrop).removeClass('active').fadeOut();
-				$(catalogToggle).removeClass('active');
-			}
-
-			;
-		}, {
-			passive: true
+			let targetTop = $(targetSelector).offset().top;
+			$('html, body').animate({
+				scrollTop: targetTop - topShift
+			}, 0);
 		});
 	}
 
@@ -301,15 +228,14 @@ const JSCCommon = {
 const $ = jQuery;
 
 function eventHandler() {
-	// JSCCommon.ifie();
-	JSCCommon.modalCall(); // JSCCommon.tabscostume('tabs');
-	// JSCCommon.mobileMenu();
-	// JSCCommon.inputMask();
-	// JSCCommon.sendForm();
-	// JSCCommon.heightwindow();
-	// JSCCommon.toggleShow(".catalog-block__toggle--desctop", '.catalog-block__dropdown');
-	// JSCCommon.animateScroll();
-	// JSCCommon.CustomInputFile(); 
+	let headerH = 0;
+	JSCCommon.modalCall();
+	JSCCommon.heightwindow();
+	JSCCommon.inputMask(); // JSCCommon.ifie();
+	// JSCCommon.tabscostume('tabs');
+
+	JSCCommon.mobileMenu(); // JSCCommon.sendForm();
+	// JSCCommon.animateScroll(headerH);
 
 	var x = window.location.host;
 	let screenName;
@@ -317,36 +243,31 @@ function eventHandler() {
 
 	if (screenName && x.includes("localhost:30")) {
 		document.body.insertAdjacentHTML("beforeend", "<div class=\"pixel-perfect\" style=\"background-image: url(screen/".concat(screenName, ");\"></div>"));
-	}
+	} //luckyoneJs
 
-	function setFixedNav() {
-		let topNav = document.querySelector('.top-nav  ');
+
+	let topNav = document.querySelector(".top-nav--js");
+
+	function calcHeaderHeight() {
+		document.documentElement.style.setProperty('--header-h', "".concat(topNav.offsetHeight, "px"));
+		headerH = topNav.offsetHeight;
 		if (!topNav) return;
 		window.scrollY > 0 ? topNav.classList.add('fixed') : topNav.classList.remove('fixed');
 	}
 
-	function whenResize() {
-		setFixedNav();
-	}
-
-	window.addEventListener('scroll', () => {
-		setFixedNav();
-	}, {
+	window.addEventListener('resize', calcHeaderHeight, {
 		passive: true
 	});
-	window.addEventListener('resize', () => {
-		whenResize();
-	}, {
+	window.addEventListener('scroll', calcHeaderHeight, {
 		passive: true
 	});
-	whenResize();
+	calcHeaderHeight();
 	let defaultSl = {
 		spaceBetween: 0,
 		lazy: {
 			loadPrevNext: true
 		},
 		watchOverflow: true,
-		spaceBetween: 0,
 		loop: true,
 		navigation: {
 			nextEl: '.swiper-button-next',
@@ -355,20 +276,28 @@ function eventHandler() {
 		pagination: {
 			el: ' .swiper-pagination',
 			type: 'bullets',
-			clickable: true // renderBullet: function (index, className) {
-			// 	return '<span class="' + className + '">' + (index + 1) + '</span>';
-			// }
-
+			clickable: true
 		}
 	};
-	const swiper4 = new Swiper('.sBanners__slider--js', _objectSpread(_objectSpread({}, defaultSl), {}, {
-		slidesPerView: 'auto',
+	let freeMomentum = {
 		freeMode: true,
 		loopFillGroupWithBlank: true,
 		touchRatio: 0.2,
 		slideToClickedSlide: true,
 		freeModeMomentum: true
-	})); // modal window
+	};
+	let swiper = new Swiper('selector', _objectSpread(_objectSpread({}, defaultSl), freeMomentum)); //
+
+	let headerBlockSlider = new Swiper('.headerBlock-slider-js', {
+		slidesPerView: 'auto',
+		spaceBetween: 20,
+		loop: true,
+		pagination: {
+			el: '.swiper-pagination',
+			type: 'bullets',
+			clickable: true
+		}
+	});
 }
 
 ;
@@ -377,10 +306,4 @@ if (document.readyState !== 'loading') {
 	eventHandler();
 } else {
 	document.addEventListener('DOMContentLoaded', eventHandler);
-} // window.onload = function () {
-// 	document.body.classList.add('loaded_hiding');
-// 	window.setTimeout(function () {
-// 		document.body.classList.add('loaded');
-// 		document.body.classList.remove('loaded_hiding');
-// 	}, 500);
-// }
+}

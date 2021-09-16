@@ -1,9 +1,27 @@
 mixin topLine()
 	// start topLine
-	+b.SECTION.topLine.section#topLine&attributes(attributes)
+	+b.topLine.d-none.d-md-block#topLine&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h2 topLine
-				
-			.row
+			+e.row.row.align-items-center
+				.col-auto.col-xl
+					+topLineImgItem('location', 'Нижний Новгород, ул. Юлиуса Фучика, д. 60 к15')
+				+e.col--middle.col-auto
+					+topLineImgItem('clock', 'Режим работы: будни 8:00 - 17:00')
+				.col
+					+e.soc-row.row.justify-content-end
+						+topLineSocItem('vk')
+						+topLineSocItem('inst')
+						+topLineSocItem('fb')
+						+topLineSocItem('tw')
+						+topLineSocItem('yt')
 	// end topLine
+
+mixin topLineImgItem(iconName, txt)
+	+e.item
+		+icon(iconName)
+		+e.item-txt=txt
+
+mixin topLineSocItem(iconName)
+	.col-auto
+		+e.soc-item(href="#")
+			img(loading="lazy" src=`img/svg/soc-${iconName}.svg` alt="")

@@ -1,29 +1,62 @@
+// start .topLine
+.topLine {
+	background: $gray-550;
+	color: $white;
 
-	// start .topLine
-	.topLine {
-		 
-	@include media-breakpoint-up(xl) {}
-	@include media-breakpoint-up(lg) {}
-	@include media-breakpoint-up(md) {}
-	@include media-breakpoint-up(sm) {}
-	@include media-breakpoint-up(xs) {}
-	
-	//
-	@include media-breakpoint-between(md, xl) { }
-	
-	
-	//
-	@include media-breakpoint-only(xs) {}
-	@include media-breakpoint-only(sm) {}
-	@include media-breakpoint-only(md) {}
-	@include media-breakpoint-only(lg) {}
-	@include media-breakpoint-only(xl) {}
-	
-	//
-	@include media-breakpoint-down(xl) {}
-	@include media-breakpoint-down(lg) {}
-	@include media-breakpoint-down(md) {}
-	@include media-breakpoint-down(sm) {}
-	@include media-breakpoint-down(xs) {} 
+	padding: rem(8.5) 0;
 
+	&__row{
+
+	}
+	&__col{
+		&--middle{
+			@include media-breakpoint-up(xxl){
+				padding-left: rem(41);
+			}
+		}
+	}
+	&__item{
+		display: flex;
+		align-items: center;
+
+		color: $white;
+		.icon{
+			color: $white;
+			flex-shrink: 0;
+			font-size: rem(12);
+			margin-right: rem(5);
+		}
+	}
+	&__item-txt{
+		font-size: rem(11.3);
+		line-height: calc(15/12);
+	}
+
+	&__soc-row{
+		--bs-gutter-x: #{rem(7.5)};
+		--bs-gutter-y: #{rem(6)};
+	}
+	&__soc-item{
+		@include mt();
+		width: rem(22);
+		height: rem(22);
+
+		&:hover{
+			//-color: $primary;
+			transform: scale(1.25);
+		}
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		img{
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+	&__{}
+	&__{}
 } // end.topLine

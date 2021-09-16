@@ -1,28 +1,35 @@
 mixin mob-mnu()
-	-
-		//- let path = require('path');
-		//- let fs = require('fs');
-		//- var requestURL = 'top-nav.json';
-		//- var request = new XMLHttpRequest();
-		//- request.open('GET', requestURL);
-		//- request.responseType = 'json';
-		//- let dataJson = JSON.parse(json);
-	//- h1= dataJson['lala'] 
 	+b.menu-mobile--js.d-lg-none
 		+b.toggle-menu-mobile--js
 			span
 		+e.inner
 			+mnu()
-	//  мобильное меню
-mixin top-nav() 
-	// start top-nav
-	+b.top-nav.block-with-lazy
+
+mixin top-nav()
+	+b.top-nav--js.block-with-lazy
 		.container
-			.row
+			+e.row.row.align-items-center
 				.col-auto.d-lg-none
-					+b.toggle-menu-mobile--js
-						span
+					+e.burger(class="toggle-menu-mobile--js")
+						img(loading="lazy" src="img/svg/burger-bars.svg" alt="")
+				.col-auto
+					+e.logo
+						img(loading="lazy" src='img/svg/logo.svg' alt="")
 				.col.d-none.d-lg-block
-					+mnu()
-					
+					+e.title
+						b Переоборудование грузовых автомобилей
+						br
+						span Работаем со всей Россией и СНГ
+				.col-auto.text-end.ms-auto.ms-lg-0
+					+e.tell-dd
+						+e.dd-btn
+							+e.icon
+								img(loading="lazy" src="img/svg/tell.svg" alt="")
+							+e.number.d-none.d-lg-block 8 800 222 97 92
+					+e.callback.d-none.d-lg-inline-block(href="#") Обратный звонок
 	// end top-nav
+
+mixin menuLine()
+	+b.menu-line.d-none.d-lg-block
+		.container
+			+mnu()

@@ -6,113 +6,264 @@
 		<meta name="description" content="о чем страница">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,  shrink-to-fit=no">
-		<link type="image/ico" href="img/favicon.ico" rel="shortcut icon"><meta name="format-detection" content="telephone=no"> 
+		<link type="image/ico" href="img/favicon.ico" rel="shortcut icon"><meta name="format-detection" content="telephone=no"> <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 		<link href="libs/swiper/swiper.min.css" rel="stylesheet"/>
 		<link href="libs/@fancyapps/ui/fancybox.css" rel="stylesheet"/>
 		<link href="css/main.min.css" rel="stylesheet"/>
 	</head>
-	<body class="main-page">
-		<div class="main-wrapper"><a class="btn bnt-primary link-modal-js" href="#modal-call">sadasdsa </a><a class="btn bnt-primary link-modal-js" href="#modal-call">sadasdsa </a>
+	<body class="main-page" data-bg="01-375.png">
+		<div class="main-wrapper">
 			<div class="menu-mobile menu-mobile--js d-lg-none">
 				<div class="toggle-menu-mobile toggle-menu-mobile--js"><span></span>
 				</div>
 				<div class="menu-mobile__inner">
-					<ul class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-						<li class="menu-item menu-item-has-children"><a href="#" itemprop="url">О нас</a>
+					<ul class="menu">
+						<li class="menu-item"><a href="#">Главная</a></li>
+						<li class="menu-item menu-item-has-children"><a href="#" itemprop="url">Услуги</a>
 							<ul class="sub-menu">
-								<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Наши работы</a></li>
-								<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Цены</a></li>
-								<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Калькулятор</a></li>
-								<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Акции</a></li>
-								<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Заказать</a></li>
+								<li class="menu-item"><a href="#">Удлинение грузовых автомобилей</a></li>
+								<li class="menu-item"><a href="#">Изготовление еврофургонов</a></li>
+								<li class="menu-item"><a href="#">Бортовые платформы</a></li>
+								<li class="menu-item"><a href="#">Переоборудование в спецтехнику</a></li>
+								<li class="menu-item"><a href="#">Дополнительные услуги</a></li>
+								<li class="menu-item"><a href="#">Контакты</a></li>
 							</ul>
 						</li>
-						<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Наши работы</a></li>
-						<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Цены</a></li>
-						<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Калькулятор</a></li>
-						<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Акции</a></li>
-						<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Заказать</a></li>
+						<li class="menu-item"><a href="#">Наши работы</a></li>
+						<li class="menu-item"><a href="#">О компании</a></li>
+						<li class="menu-item"><a href="#">Акции</a></li>
+						<li class="menu-item"><a href="#">Отзывы</a></li>
+						<li class="menu-item"><a href="#">Контакты</a></li>
 					</ul>
 				</div>
 			</div>
-			<!--  мобильное меню-->
-			<svg class="icon icon-telegram ">
-				<use xlink:href="img/svg/sprite.svg#telegram"></use>
-			</svg>
 			<!-- start header-->
 			<header class="header" id="header">
-			</header>
-			<!-- end header-->
-			<!-- start top-nav-->
-			<div class="top-nav block-with-lazy">
-				<div class="container">
-					<div class="row">
-						<div class="col-auto d-lg-none">
-							<div class="toggle-menu-mobile toggle-menu-mobile--js"><span></span>
+				<!-- start topLine-->
+				<div class="topLine d-none d-md-block" id="topLine">
+					<div class="container">
+						<div class="topLine__row row align-items-center">
+							<div class="col-auto col-xl">
+								<div class="topLine__item">
+									<svg class="icon icon-location ">
+										<use xlink:href="img/svg/sprite.svg#location"></use>
+									</svg>
+									<div class="topLine__item-txt">Нижний Новгород, ул. Юлиуса Фучика, д. 60 к15
+									</div>
+								</div>
+							</div>
+							<div class="topLine__col topLine__col--middle col-auto">
+								<div class="topLine__item">
+									<svg class="icon icon-clock ">
+										<use xlink:href="img/svg/sprite.svg#clock"></use>
+									</svg>
+									<div class="topLine__item-txt">Режим работы: будни 8:00 - 17:00
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="topLine__soc-row row justify-content-end">
+									<div class="col-auto">
+										<a class="topLine__soc-item" href="#"><img loading="lazy" src="img/svg/soc-vk.svg" alt=""/>
+										</a>
+									</div>
+									<div class="col-auto">
+										<a class="topLine__soc-item" href="#"><img loading="lazy" src="img/svg/soc-inst.svg" alt=""/>
+										</a>
+									</div>
+									<div class="col-auto">
+										<a class="topLine__soc-item" href="#"><img loading="lazy" src="img/svg/soc-fb.svg" alt=""/>
+										</a>
+									</div>
+									<div class="col-auto">
+										<a class="topLine__soc-item" href="#"><img loading="lazy" src="img/svg/soc-tw.svg" alt=""/>
+										</a>
+									</div>
+									<div class="col-auto">
+										<a class="topLine__soc-item" href="#"><img loading="lazy" src="img/svg/soc-yt.svg" alt=""/>
+										</a>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="col d-none d-lg-block">
-							<ul class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-								<li class="menu-item menu-item-has-children"><a href="#" itemprop="url">О нас</a>
-									<ul class="sub-menu">
-										<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Наши работы</a></li>
-										<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Цены</a></li>
-										<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Калькулятор</a></li>
-										<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Акции</a></li>
-										<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Заказать</a></li>
-									</ul>
-								</li>
-								<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Наши работы</a></li>
-								<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Цены</a></li>
-								<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Калькулятор</a></li>
-								<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Акции</a></li>
-								<li class="menu-item" itemprop="item"><a href="#" itemprop="url">Заказать</a></li>
-							</ul>
+					</div>
+				</div>
+				<!-- end topLine-->
+				<div class="top-nav top-nav--js block-with-lazy">
+					<div class="container">
+						<div class="top-nav__row row align-items-center">
+							<div class="col-auto d-lg-none">
+								<div class="top-nav__burger toggle-menu-mobile toggle-menu-mobile--js"><img loading="lazy" src="img/svg/burger-bars.svg" alt=""/>
+								</div>
+							</div>
+							<div class="col-auto">
+								<div class="top-nav__logo"><img loading="lazy" src="img/svg/logo.svg" alt=""/>
+								</div>
+							</div>
+							<div class="col d-none d-lg-block">
+								<div class="top-nav__title"><b>Переоборудование грузовых автомобилей</b><br/><span>Работаем со всей Россией и СНГ</span>
+								</div>
+							</div>
+							<div class="col-auto text-end ms-auto ms-lg-0">
+								<div class="top-nav__tell-dd">
+									<div class="top-nav__dd-btn">
+										<div class="top-nav__icon"><img loading="lazy" src="img/svg/tell.svg" alt=""/>
+										</div>
+										<div class="top-nav__number d-none d-lg-block">8 800 222 97 92
+										</div>
+									</div>
+								</div>
+								<a class="top-nav__callback d-none d-lg-inline-block" href="#">Обратный звонок
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- end top-nav-->
-			<!-- start topLine-->
-			<section class="topLine section" id="topLine">
-				<div class="container">
-					<div class="section-title text-center">
-						<h2>topLine</h2>
+				<!-- end top-nav-->
+				<div class="menu-line d-none d-lg-block">
+					<div class="container">
+						<ul class="menu">
+							<li class="menu-item"><a href="#">Главная</a></li>
+							<li class="menu-item menu-item-has-children"><a href="#" itemprop="url">Услуги</a>
+								<ul class="sub-menu">
+									<li class="menu-item"><a href="#">Удлинение грузовых автомобилей</a></li>
+									<li class="menu-item"><a href="#">Изготовление еврофургонов</a></li>
+									<li class="menu-item"><a href="#">Бортовые платформы</a></li>
+									<li class="menu-item"><a href="#">Переоборудование в спецтехнику</a></li>
+									<li class="menu-item"><a href="#">Дополнительные услуги</a></li>
+									<li class="menu-item"><a href="#">Контакты</a></li>
+								</ul>
+							</li>
+							<li class="menu-item"><a href="#">Наши работы</a></li>
+							<li class="menu-item"><a href="#">О компании</a></li>
+							<li class="menu-item"><a href="#">Акции</a></li>
+							<li class="menu-item"><a href="#">Отзывы</a></li>
+							<li class="menu-item"><a href="#">Контакты</a></li>
+						</ul>
 					</div>
-					<div class="row"></div>
 				</div>
-			</section>
-			<!-- end topLine-->
+			</header>
+			<!-- end header-->
 			<!-- start headerBlock-->
 			<div class="headerBlock section" id="headerBlock">
 				<div class="container">
-					<div class="section-title text-center">
-						<h2>headerBlock ds dfsdfdsfsd</h2>
+					<div class="headerBlock__slider-wrap">
+						<div class="swiper-container headerBlock-slider-js">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="headerBlock__row row gx-0">
+										<div class="col-sm-7 col-lg-6">
+											<div class="headerBlock__content">
+												<div class="headerBlock__title">Переоборудование  автомобилей
+												</div>
+											</div>
+										</div>
+										<div class="headerBlock__img-col col-sm-5 col-lg-6 d-none d-sm-block"><img loading="lazy" src="img/@2x/headerBlock-img.jpg" alt=""/>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="headerBlock__row row gx-0">
+										<div class="col-sm-7 col-lg-6">
+											<div class="headerBlock__content">
+												<div class="headerBlock__title">Переоборудование  автомобилей
+												</div>
+											</div>
+										</div>
+										<div class="headerBlock__img-col col-sm-5 col-lg-6 d-none d-sm-block"><img loading="lazy" src="img/@2x/headerBlock-img.jpg" alt=""/>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="headerBlock__row row gx-0">
+										<div class="col-sm-7 col-lg-6">
+											<div class="headerBlock__content">
+												<div class="headerBlock__title">Переоборудование  автомобилей
+												</div>
+											</div>
+										</div>
+										<div class="headerBlock__img-col col-sm-5 col-lg-6 d-none d-sm-block"><img loading="lazy" src="img/@2x/headerBlock-img.jpg" alt=""/>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="headerBlock__row row gx-0">
+										<div class="col-sm-7 col-lg-6">
+											<div class="headerBlock__content">
+												<div class="headerBlock__title">Переоборудование  автомобилей
+												</div>
+											</div>
+										</div>
+										<div class="headerBlock__img-col col-sm-5 col-lg-6 d-none d-sm-block"><img loading="lazy" src="img/@2x/headerBlock-img.jpg" alt=""/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
 					</div>
-					<div class="row"></div>
+					<div class="section-title">
+						<h1>Переоборудование<br/><span>грузовых автомобилей</span></h1>
+						<p>Производство еврофургонов, эвакуаторов и самосвалов на базе машин отечественных и зарубежных марок, удлинение грузовых автомобилей, а также установка пневмоподвески, ГБО и п рочими видами усовершенствования коммерческого транспорта.</p>
+					</div>
+					<div class="headerBlock__c-row row gy-20">
+						<div class="col-lg-5 col-xl-6">
+							<a class="headerBlock__card big" href="#"><img loading="lazy" src="img/@2x/headerBlock-card-1.jpg" alt=""/>
+								<div class="headerBlock__c-content">
+									<h6>Удлинение <br/> грузовых автомобилей</h6>
+									<p>Удлинение, производство еврофургонов, эвакуаторов и самосвалов <span class="d-none d-sm-inline">на базе машин отечественных и зарубежных марок. </span></p>
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-7 col-xl-6">
+							<div class="row gy-20">
+								<div class="col-6">
+									<a class="headerBlock__card" href="#"><img loading="lazy" src="img/@2x/headerBlock-card-2.jpg" alt=""/>
+										<div class="headerBlock__c-content">
+											<h6>СПЕЦТЕХНИКА</h6>
+											<p>Удлинение, производство еврофургонов.</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-6">
+									<a class="headerBlock__card" href="#"><img loading="lazy" src="img/@2x/headerBlock-card-3.jpg" alt=""/>
+										<div class="headerBlock__c-content">
+											<h6>СПЕЦТЕХНИКА</h6>
+											<p>Удлинение, производство еврофургонов.</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-6">
+									<a class="headerBlock__card" href="#"><img loading="lazy" src="img/@2x/headerBlock-card-4.jpg" alt=""/>
+										<div class="headerBlock__c-content">
+											<h6>СПЕЦТЕХНИКА</h6>
+											<p>Удлинение, производство еврофургонов.</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-6">
+									<a class="headerBlock__card" href="#"><img loading="lazy" src="img/@2x/headerBlock-card-5.jpg" alt=""/>
+										<div class="headerBlock__c-content">
+											<h6>СПЕЦТЕХНИКА</h6>
+											<p>Удлинение, производство еврофургонов.</p>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="text-center">
+						<a class="headerBlock__btn" href="#">Перейти в каталог услуг
+						</a>
+					</div>
 				</div>
 			</div>
 			<!-- end headerBlock-->
-			<!-- start sForm-->
-			<section class="sForm section" id="sForm">
-				<div class="container">
-					<div class="section-title text-center">
-						<h2>sForm</h2>
-					</div>
-					<div class="row"></div>
-				</div>
-			</section>
-			<!-- end sForm-->
-			<!-- start sContact-->
-			<section class="sContact section" id="sContact">
-				<div class="container">
-					<div class="section-title text-center">
-						<h2>sContact</h2>
-					</div>
-					<div class="row"></div>
-				</div>
-			</section>
-			<!-- end sContact-->
+			<!--+topLine()-->
+			<!--+sForm()-->
+			<!--+sContact()-->
 			<footer class="footer">
 				<div class="container">
 					<div class="row">
@@ -152,13 +303,9 @@
 		</div>
 		<!-- #modal-call-->
 		<!-- end modals-->
-		<!-- modal libs-->
 		<script src="libs/jquery/jquery.min.js"></script>
 		<script src="libs/@fancyapps/ui/fancybox.umd.js"></script>
-		<!-- modal libs-->
-		<!-- slider libs-->
-		<script src="libs/swiper/swiper-bundle.min.js"> </script>
-		<!-- /slider libs-->
+		<script src="libs/swiper/swiper-bundle.min.js"></script>
 		<script src="libs/inputmask/inputmask.min.js"></script>
 		<script src="js/common.js"></script>
 	</body>

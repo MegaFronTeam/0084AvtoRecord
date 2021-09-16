@@ -1,40 +1,225 @@
 .top-nav {
-	// background: svg-load('../svg/check.svg',  stroke=$primary); 
-	// 
-	@include media-breakpoint-up(xl) {}
+	background-color: $body-color;
+	color: $white;
 
-	@include media-breakpoint-up(lg) {}
+	padding: 7.5px 0;
+	@include media-breakpoint-up(md){
+		padding: rem(15) 0;
+	}
+	@include media-breakpoint-up(xxl){
+		padding: rem(19) 0;
+	}
 
-	@include media-breakpoint-up(md) {}
+	//
+	&__row{
+		--bs-gutter-x: 25px;
+	}
+	&__burger{
+		@include mt();
+		width: 34px;
+		height: 34px;
+		padding: 5px;
+		border-radius: 5px;
+		border: 1px solid $gray-720;
 
-	@include media-breakpoint-up(sm) {}
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-	@include media-breakpoint-up(xs) {}
+		img{
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+	&__logo{
+		display: block;
 
-	// 
-	@include media-breakpoint-between(md, xl) {}
+		width: 73px;
+		@include media-breakpoint-up(sm){
+			width: rem(100);
+		}
+		@include media-breakpoint-up(lg){
+			width: rem(126);
+			margin-right: rem(62);
+		}
 
-	// 
-	@include media-breakpoint-only(xs) {}
+		img{
+			width: 100%;
+			height: auto;
+		}
+	}
+	&__title{
+		b{
+			font-size: rem(15.3);
+		}
+		span{
+			font-size: rem(14.7);
+		}
+	}
+	&__tell-dd{
+		position: relative;
+		z-index: 10;
+	}
+	--chevron-me: #{rem(23)};
+	--chevron-w: #{rem(12)};
+	&__dd-btn{
+		cursor: pointer;
+		display: flex;
+		align-items: center;
 
-	@include media-breakpoint-only(sm) {}
+		&:after{
+			@include media-breakpoint-up(lg){
+				content: '';
+			}
+			@include mt();
+			flex-shrink: 0;
+			display: inline-block;
+			margin-left: var(--chevron-me);
 
-	@include media-breakpoint-only(md) {}
+			width: var(--chevron-w);
+			height: var(--chevron-w);
 
-	@include media-breakpoint-only(lg) {}
+			background-image: url(../img/svg/chevron-down.svg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+		}
+	}
+	&__icon{
+		flex-shrink: 0;
 
-	@include media-breakpoint-only(xl) {}
+		@include media-breakpoint-down(lg){
+			@include mt();
+			width: 34px;
+			height: 34px;
+			padding: 5px;
+			border-radius: 5px;
+			border: 1px solid $gray-720;
+		}
+		@include media-breakpoint-up(lg){
+			width: rem(22);
+			height: rem(22);
+			margin-right: rem(10);
+		}
 
-	// 
-	@include media-breakpoint-down(xl) {}
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-	@include media-breakpoint-down(lg) {}
+		img{
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+	&__number{
+		font-weight: 600;
+		font-size: rem(24);
+		line-height: calc(29/24);
+		color: $white;
+	}
+	&__callback{
+		display: inline-block;
+		font-weight: 600;
+		font-size: rem(14);
+		line-height: calc(17/14);
 
-	@include media-breakpoint-down(md) {}
-
-	@include media-breakpoint-down(sm) {}
-
-	@include media-breakpoint-down(xs) {}
+		color: $primary;
+		padding-right: calc(var(--chevron-w) + var(--chevron-me));
+	}
+	&__{}
+	&__{}
 }
 
+.menu-line{
+	background-color: $white;
+	.menu{
+		list-style: none;
+		padding: 0;
+		margin: 0;
 
+		display: flex;
+		align-items: center;
+
+		& > .menu-item{
+			& > a{
+				display: block;
+				padding: rem(18) 0;
+				font-size: rem(13);
+				line-height: calc(17/14);
+				text-transform: uppercase;
+				color: $body-color;
+
+				position: relative;
+				z-index: 1;
+				&:after{
+					content: '';
+					@include mt();
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: calc(100% + #{rem(13)});
+					height: 2px;
+					background-color: $primary;
+					transform: scaleX(var(--lower-var-scale, 0));
+					transform-origin: top left;
+				}
+
+				&:hover{
+					text-shadow: 0 0 .6px rgba($black, .75);
+					--lower-var-scale: 1;
+				}
+			}
+
+			margin-right: rem(20);
+			@include media-breakpoint-up(lg){
+				margin-right: rem(35.5);
+			}
+
+			&.menu-item-has-children{
+				position: relative;
+				&:hover{
+					--sub-mnu-scale: 1;
+				}
+			}
+		}
+	}
+	.sub-menu{
+		width: rem(300);
+		@include mt();
+		transform-origin: top center;
+		transform: scaleY(var(--sub-mnu-scale, 0));
+
+		list-style: none;
+		padding: rem(20);
+		position: absolute;
+		top: 100%;
+		left: 0;
+
+		background: $white;
+		border: 1px solid $gray-300;
+		border-radius: rem(5);
+
+		& > .menu-item{
+			a{
+				display: block;
+				font-size: rem(14);
+				line-height: calc(17/14);
+
+				letter-spacing: rem(-0.2);
+				color: $body-color;
+				&:hover{
+					color: $primary;
+				}
+			}
+
+			margin-bottom: rem(20);
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+}

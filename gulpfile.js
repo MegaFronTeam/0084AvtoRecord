@@ -39,6 +39,13 @@ global.$ = {
     },
     public: 'public',
     sourse: 'sourse',
+
+    react: require('gulp-react'),
+    browserify: require('browserify'),
+    buffer: require('vinyl-buffer'),
+    sourceMaps: require('gulp-sourcemaps'),
+    source: require('vinyl-source-stream'),
+    babelify: require('babelify'),
 }
 $.path.tasks.forEach(function (taskPath) {
     require(taskPath)();
@@ -56,6 +63,7 @@ $.gulp.task('default', $.gulp.series('svg', 'svgCopy',
         'img',
         'pug',
         'libs',
+        //'react',
         // 'scripts',
         'scripts:common',
         'sass',
