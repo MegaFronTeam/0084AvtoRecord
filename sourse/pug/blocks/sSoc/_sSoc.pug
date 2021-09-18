@@ -1,0 +1,26 @@
+mixin sSoc(data)
+	// start sSoc
+	+b.SECTION.sSoc.section#sSoc&attributes(attributes)
+		.container
+			+b.section-title
+				h2
+					| Социальные
+					|
+					span сети
+			.row.gy-20.align-items-center
+				.col-lg-6.col-xl-7
+					+e.txt
+						p Производство еврофургонов, эвакуаторов и самосвалов на базе машин отечественных и зарубежных марок, удлинение грузовых автомобилей, а также установка пневмоподвески, ГБО и п рочими видами усовершенствования коммерческого транспорта.
+				.col-lg-6.col-xl-5
+					+e.soc-row.row.justify-content-lg-end
+						+sSocItem('vk', '#4A76A8')
+						+sSocItem('inst', '#E94754')
+						+sSocItem('fb', '#1877F2')
+						+sSocItem('tw', '#03A9F4')
+						+sSocItem('yt', '#FF0000')
+	// end sSoc
+
+mixin sSocItem(iconName, hoverColor)
+	.col-auto
+		+e.soc-item(href="#" target="_blank" style=`background-color: ${hoverColor};`)
+			img(loading="lazy" src=`img/svg/soc-${iconName}.svg` alt="")

@@ -1,9 +1,39 @@
 mixin mob-mnu()
 	+b.menu-mobile--js.d-lg-none
-		+b.toggle-menu-mobile--js
-			span
 		+e.inner
-			+mnu()
+			+e.box--top
+				+e.cb-cont.text-end
+					+e.close-btn(class="toggle-menu-mobile--js")
+						img(loading="lazy" src="img/svg/cross.svg" alt="")
+				+mnu()
+			+e.box--foot
+				+b.f-tell
+					+footerTellBl('89308088580', '8 (930) 808-85-80', 'бесплатно по России')
+					+footerTellBl('88002229792', '8 (800) 222-97-92', 'городской')
+					+e.tell-bl--wa
+						+e.wa-row.row.align-items-center
+							.col-auto
+								+e.wa-img
+									img(loading="lazy" src="img/svg/footer-wa.svg" alt="")
+							.col
+								+e.tel(href="https://api.whatsapp.com/send/?phone=88312160797") WhatsApp
+								+e.gray для звонков из зарубежа
+					+b.big-link.link-modal-js(href="#modal-call") Обратный звонок
+				+b.f-address
+					+footerTxtItem('Адрес:')
+						p
+							| г. Нижний Новгород,
+							br
+							| ул. Юлиуса Фучика, д. 60 к15
+					+footerTxtItem('Режим работы:')
+						p будни  8:00 - 17:00
+					+e.mnu-rights
+						| © ООО «Авторекорд»
+						|
+						span.set-curr-year-js 2020
+						br
+						| ИНН 5256171974, ОГРН 1185275017124
+				+footerSoc('')
 
 mixin top-nav()
 	+b.top-nav--js.block-with-lazy

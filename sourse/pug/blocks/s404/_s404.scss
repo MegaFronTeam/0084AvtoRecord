@@ -1,0 +1,46 @@
+// start .s404
+.s404 {
+	--sTPB: 0;
+
+	--sPT: 125px;
+	--sPB: 146px;
+	@include media-breakpoint-up(xxl){
+		--sPT: #{rem(230)};
+		--sPB: #{rem(218)};
+	}
+	.section-title{
+		@include media-breakpoint-up(base){
+			padding-right: 40px;
+		}
+		h2{
+			text-transform: none;
+			margin-left: auto;
+			margin-right: auto;
+			font-size: 29px;
+			letter-spacing: rem(0.7);
+			line-height: calc(39/29);
+
+			width: 200px;
+			@include media-breakpoint-up(md){
+				width: auto;
+			}
+		}
+		p{
+			font-size: 13px;
+			margin-bottom: 20px;
+			line-height: calc(17/14);
+		}
+		a{
+			@extend .btn;
+			@extend .btn-primary;
+			min-width: 240px;
+
+			font-weight: 600;
+			font-size: 14px;
+		}
+	}
+	&__{}
+	&__{}
+	&__{}
+	&__{}
+} // end.s404

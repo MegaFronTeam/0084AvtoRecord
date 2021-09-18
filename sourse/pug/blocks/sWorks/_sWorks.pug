@@ -1,0 +1,39 @@
+mixin sWorks(data)
+	// start sWorks
+	+b.SECTION.sWorks.section#sWorks&attributes(attributes)
+		+b.section-title
+			.row.gy-20.align-items-center
+				.col-md
+					h1
+						| Наши
+						|
+						span работы
+				.col-md-auto
+					+e.s-row.row.align-items-center
+						.col-auto Показать:
+						.col.col-sm-auto
+							+e.SELECT.select.form-select(name="show-type")
+								option Список
+								option Список2
+								option Список3
+		+e.main-row.row.gy-20
+			+sWorksItem({imgNum: 1})
+			+sWorksItem({imgNum: 2})
+			+sWorksItem({imgNum: 3})
+			+sWorksItem({imgNum: 4})
+			+sWorksItem({imgNum: 5})
+			+sWorksItem({imgNum: 6})
+
+	// end sWorks
+
+mixin sWorksItem(data)
+	.col-sm-6.col-md-4
+		+e.item
+			+e.img
+				img(loading="lazy" src=`img/@2x/sWorksItem-${data.imgNum}.jpg` alt="")
+			+e.title Газель Фермер
+			+e.descr
+				| Удлинение, производство
+				br
+				| еврофургонов.
+			+e.region Регион

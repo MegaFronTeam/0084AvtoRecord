@@ -1,0 +1,34 @@
+extends layout/main.pug
+
+
+include ../blocks/sContent/_sContent.pug
+include ../blocks/sContact/_sContact.pug
+include ../blocks/sAddInfo/_sAddInfo.pug
+include ../blocks/sSoc/_sSoc.pug
+include ../blocks/sCatalog/_sCatalog.pug
+include ../blocks/sFeedBack/_sFeedBack.pug
+include ../blocks/sWorks/_sWorks.pug
+include ../blocks/s404/_s404.pug
+
+block variables
+	- let  mainPage= 'main-page' 
+	- let  bg='05-375.png'
+
+block title
+	- let  title= '05-404'
+	title= title
+block pagecontent
+	+mob-mnu()
+	+header()
+		+topLine()
+		+top-nav()
+		+menuLine()
+	+pageHead({
+		breadcrumbs: ['Главная', '404'],
+		seoBox: false,
+	})
+		+s404()
+	+footer()
+	+b.fixed-box--js
+		+blueFixed()
+		+grayFixed()

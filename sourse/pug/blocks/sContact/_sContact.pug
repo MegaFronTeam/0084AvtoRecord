@@ -1,9 +1,36 @@
 mixin sContact()
 	// start sContact
 	+b.SECTION.sContact.section#sContact&attributes(attributes)
-		.container
-			+b.section-title.text-center
-				h2 sContact
-				
-			.row
+		+b.section-title
+			h1
+				| Контактная
+				|
+				span информация
+		+e.sub-title Основная информация
+		+e.items-row.row.gy-20
+			+sContactItem(1, 'Телефоны для заказа')
+				a(href="tel:89308088580") 8 (930) 808-85-80
+				a(href="tel:88002229792") 8 (800) 222-97-92
+				a(href="tel:88312160797") 8 (831) 216-07-97
+			+sContactItem(2, 'Электронная почта')
+				a(href='mailto:avtorekord-nn@mail.ru') avtorekord-nn@mail.ru
+			+sContactItem(3, 'Адрес')
+				p
+					| г. Нижний Новгород, улица Юлиуса Фучика,
+					br
+					| д. 60, корп. 15
+			+sContactItem(4, 'Режим работы')
+				p Будни  8:00 - 17:00
+		+e.sub-title Расположение на карте
+		+e.map
+			<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Abaf97ca96139f9956b88ed7aac2976d42a1a2aeb468a7bbd75691bc10129a4f7&amp;width=1275&amp;height=332&amp;lang=ru_RU&amp;scroll=false"></script>
 	// end sContact
+
+mixin sContactItem(imgNum, title)
+	.col-sm-6.col-lg-3
+		+e.item.text-center
+			+e.img
+				img(loading="lazy" src=`img/svg/sContactItem-${imgNum}.svg` alt="")
+			+e.title=title
+			+e.content
+				block

@@ -1,0 +1,55 @@
+// start .sSoc
+.sSoc {
+	--sPT: 48px;
+	--sPB: 40px;
+	--sTPB: 20px;
+	@include media-breakpoint-up(lg){
+		--sPT: #{rem(80)};
+		--sPB: #{rem(74)};
+		--sTPB: #{rem(40)};
+	}
+
+	.section-title{
+		h2{
+
+		}
+	}
+	&__txt{
+		font-size: rem(15.1);
+	}
+	&__soc-row{
+		--bs-gutter-x: #{13.5px};
+		@include media-breakpoint-up(xl){
+			--bs-gutter-x: #{rem(20)};
+		}
+	}
+	&__soc-item{
+		@include mt();
+		width: 40px;
+		height: 40px;
+		padding: 9px;
+		@include media-breakpoint-up(lg){
+			width: rem(60);
+			height: rem(60);
+			padding: rem(14);
+		}
+
+		//-
+		&:not(:hover){
+			background-color: $gray-610!important;
+		}
+
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		img{
+			width: 100%;
+			height: auto;
+			max-height: 100%;
+		}
+	}
+	&__{}
+	&__{}
+} // end.sSoc

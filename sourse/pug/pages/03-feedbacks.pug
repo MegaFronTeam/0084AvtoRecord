@@ -1,0 +1,38 @@
+extends layout/main.pug
+
+
+include ../blocks/sContent/_sContent.pug
+include ../blocks/sContact/_sContact.pug
+include ../blocks/sAddInfo/_sAddInfo.pug
+include ../blocks/sSoc/_sSoc.pug
+include ../blocks/sCatalog/_sCatalog.pug
+include ../blocks/sFeedBack/_sFeedBack.pug
+
+block variables
+	- let  mainPage= 'main-page' 
+	- let  bg='03-375.png'
+
+block title
+	- let  title= '03-feedbacks'
+	title= title
+block pagecontent
+	+mob-mnu()
+	+header()
+		+topLine()
+		+top-nav()
+		+menuLine()
+	+pageHead({
+		breadcrumbs: ['Главная', 'Услуги'],
+		seoBox: false,
+	})
+		+sFeedBack()
+		+e.SECTION.seo--bigger
+			H2 КАК ОСТАВИТЬ ОТЗЫВ ОРГАНИЗАЦИИ
+			p.mb-0 Тут речь про то что мы против заказных отзывов и добавляем их из открытых источников. Если хочешь написать отзыв то на
+			ul
+				li Google
+				li Яндекс
+	+footer()
+	+b.fixed-box--js
+		+blueFixed()
+		+grayFixed()

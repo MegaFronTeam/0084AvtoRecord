@@ -9,6 +9,45 @@ include components/pic.pug
 include components/img.pug
 include components/btn.pug
 
+mixin pageHead(data)
+	+b.page-head
+		.container
+			+e.row.row
+				+e.sb-col.col-lg-3.d-none.d-lg-block
+					+e.sidebar
+						+pageHeadSbItem('Справка о компании', 'active')
+						+pageHeadSbItem('Изготовление еврофургонов')
+						+pageHeadSbItem('Бортовые платформы')
+						+pageHeadSbItem('Спецтехника')
+						+pageHeadSbItem('Дополнительные опции', 'active')
+							li: a(href="#") Инструментальный ящик
+							li: a(href="#") Пневмоподвеска
+							li: a(href="#") Газобалонное оборудование
+					if data.hasActual
+						+e.actual-title Актуально по теме
+						+e.UL.a-items
+							li: a(href="#") Бортовые платформы
+							li: a(href="#") Бортовые платформы
+							li: a(href="#") Бортовые платформы
+				.col
+					+breadcrumb(...data.breadcrumbs)
+					block
+					if data.seoBox
+						+e.SECTION.seo
+							H2 Заголовок Н2
+							P Производство еврофургонов, эвакуаторов и самосвалов на базе машин отечественных и зарубежных марок, удлинение грузовых автомобилей, а также установка пневмоподвески, ГБО и п рочими видами усовершенствования коммерческого транспорта.
+
+mixin pageHeadSbItem(headTxt, activeClass='')
+	+e.dd-item(class=activeClass)
+		+e.dd-head.free-dd-head-js=headTxt
+		+e.dd-content.free-dd-content-js(class=activeClass)
+			ul
+				if block
+					block
+				else
+					li: a(href="#") Удлинение газель
+					li: a(href="#") Удлинение газон
+					li: a(href="#") Удлинение next
 
 mixin arrow()
 	.swiper-button-hand.swiper-button-hand-prev.swiper-button-prev

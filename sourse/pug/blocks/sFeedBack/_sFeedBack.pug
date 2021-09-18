@@ -1,0 +1,47 @@
+mixin sFeedBack(data)
+	// start sFeedBack
+	+b.SECTION.sFeedBack.section#sFeedBack&attributes(attributes)
+		+e.box
+			h1 отзывы
+			+e.items
+				+sFeedBackItem()
+				+sFeedBackItem()
+				+sFeedBackItem()
+			+e.btns-row.row.justify-content-center
+				.col-sm-6.col-md-auto
+					+e.btn--orange(href="#") Оcтавить отзыв
+				.col-sm-6.col-md-auto
+					+e.btn--out-gray(href="#") Показать ещё
+
+	// end sFeedBack
+
+mixin sFeedBackItem(data)
+	+e.item
+		+e.src--mb.d-md-none
+			b Источник отзыва
+			span Youtube
+		+e.top-row.row
+			+e.name.col Иван Иванов
+			.col-auto
+				+e.stars-row.row
+					+sFeedBackStar('active')
+					+sFeedBackStar('active')
+					+sFeedBackStar('active')
+					+sFeedBackStar('active')
+					+sFeedBackStar('')
+		+e.txt
+			p Пришел после видеоотзыва из блога на ютубе. Хотел просто поинтересоваться для начала, но в принципе все устроило. Подкупили гарантии и грамотные консультанты на телефоне, доступно разъяснили возможности и предложили варианты. Рекомендую Авторекорд.
+		+e.foot-row.row
+			+e.date.col 16.12.2020
+			.col-auto.d-none.d-md-block
+				+e.src
+					b
+						| Источник отзыва
+						|
+					span Youtube
+
+
+mixin sFeedBackStar(addClasses='')
+	.col-auto
+		+e.star(class=addClasses)
+			+icon('star')

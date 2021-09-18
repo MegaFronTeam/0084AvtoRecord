@@ -1,0 +1,38 @@
+mixin sAddInfo(data)
+	// start sAddInfo
+	+b.SECTION.sAddInfo.section#sAddInfo&attributes(attributes)
+		.container
+			+b.section-title
+				h2
+					| Дополнительная
+					|
+					span информация
+			+b.tabs.row.sAddInfo-dd-group-js
+				.col-md-6.col-lg-5
+					+sAddInfoTabsBtn('Справка о компании')
+						+sAddInfoTabsBtnContent('1', 'dd-content-js d-md-none')
+					+sAddInfoTabsBtn('Выполненные проекты', 'active')
+						+sAddInfoTabsBtnContent('', 'dd-content-js d-md-none active')
+					+sAddInfoTabsBtn('Информация для заказчиков')
+						+sAddInfoTabsBtnContent('3', 'dd-content-js d-md-none')
+					+sAddInfoTabsBtn('Отзывы клиентов')
+						+sAddInfoTabsBtnContent('4', 'dd-content-js d-md-none')
+				+e.wrap.col-md-6.col-lg-7.d-none.d-md-block
+					+sAddInfoTabsBtnContent('1')
+					+sAddInfoTabsBtnContent('', 'active')
+					+sAddInfoTabsBtnContent('3')
+					+sAddInfoTabsBtnContent('4')
+
+	// end sAddInfo
+
+mixin sAddInfoTabsBtn(txt, addClasses='')
+	+e.dd-item
+		+e.btn.dd-head-js(class=addClasses)=txt
+		block
+
+mixin sAddInfoTabsBtnContent(num='', addClasses='')
+	+e.content(class=addClasses)
+		+e.txt
+			p=`Производство еврофургонов, эвакуаторов и самосвалов на базе машин отечественных и зарубежных марок, удлинение грузовых автомобилей, а также установка пневмоподвески.${num}`
+		.text-md-end
+			+e.more-btn(href="#") Подробнее

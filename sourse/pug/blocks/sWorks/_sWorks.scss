@@ -1,0 +1,88 @@
+// start .sWorks
+.sWorks {
+
+	--sPT: 20px;
+	--sPB: 40px;
+	--sTPB: 20px;
+	@include media-breakpoint-up(lg) {
+		--sPT: 0;
+		--sPB: #{rem(80)};
+		--sTPB: #{rem(33)};
+	}
+	.section-title{
+		h1{
+			margin-bottom: 0;
+			font-weight: bold;
+
+			font-size: 22px;
+			line-height: calc(29/22);
+			@include media-breakpoint-up(sm){
+				font-size: rem(29);
+				line-height: calc(39/32);
+			}
+			text-transform: uppercase;
+		}
+		&__s-row{
+			--bs-gutter-x: 10px;
+			@include media-breakpoint-up(lg){
+				--bs-gutter-x: #{rem(20)};
+			}
+		}
+		&__select{
+			padding: 8px rem(50) 8px 10px;
+			@include media-breakpoint-up(sm){
+				padding: rem(13) rem(50) rem(13) rem(15);
+			}
+
+			width: 100%;
+			@include media-breakpoint-up(sm){
+				width: rem(236);
+			}
+		}
+	}
+
+	//
+	&__main-row{
+		@include media-breakpoint-up(xxl){
+			--bs-gutter-y: #{rem(54)};
+		}
+	}
+	&__item{
+
+	}
+	&__img{
+		@extend .accept-ratio-frame;
+		border-radius: 5px;
+
+		margin-bottom: 18px;
+		padding-top: calc(220/335 * 100%);
+		@include media-breakpoint-up(sm){
+			padding-top: calc(220/280 * 100%);
+			margin-bottom: rem(20);
+		}
+	}
+	&__title{
+		font-weight: bold;
+		margin-bottom: 10px;
+
+		font-size: 15.1px;
+		@include media-breakpoint-up(sm){
+			font-size: rem(15.1);
+			line-height: calc(20/15);
+		}
+	}
+	&__descr{
+		font-size: 14px;
+		line-height: 1.5;
+		color: $gray-550;
+		margin-bottom: 10px;
+	}
+	&__region{
+		font-size: 14px;
+		line-height: calc(17/14);
+	}
+
+	//
+	&__{}
+	&__{}
+} // end.sWorks

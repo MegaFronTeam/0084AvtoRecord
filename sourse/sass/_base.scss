@@ -1,5 +1,7 @@
 .pixel-perfect {
   top: 0;
+  //top: 20px;
+
   display: block;
   @include a-cent(x);
   pointer-events: none;
@@ -24,13 +26,18 @@ html {
 }
 
 body {
-  &.fixed,
-  &.fancybox-active {
+  &.fixed{
     .header {
       padding-right: var(--spacing-end);
     }
 
     margin-right: var(--spacing-end);
+  }
+
+  &.fancybox-active {
+    .fixed-box{
+      width: calc(100% - var(--spacing-end));
+    }
   }
 
   // min-width: 575px;
@@ -92,13 +99,13 @@ body {
   }
 }
 
-//.main-wrapper {
-//	width: 100%;
-//	display: flex;
-//	flex-direction: column;
-//	min-width: 0;
-//	min-height: 100vh;
-//}
+.main-wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	min-height: 100vh;
+}
 
 .section {
   @include bgs;
@@ -226,14 +233,17 @@ ul {
   }
 
   &__content {
-    @include mt;
+    @include media-breakpoint-up(md){
+      @include mt;
+      opacity: 0;
+      &.active {
+        opacity: 1;
+      }
+    }
 
     display: none;
-    opacity: 0;
-
     &.active {
       display: block;
-      opacity: 1;
     }
   }
 }
@@ -462,6 +472,8 @@ body{
 .arrow-btn{
   @extend .btn;
   @extend .btn-outline-gray;
+
+  font-size: 13px;
   min-width: 224px;
   color: $body-color!important;
 
@@ -475,4 +487,268 @@ body{
     margin-left: 10px;
     background-image: url(../img/svg/chevron-right.svg);
   }
+}
+
+//
+.page-head{
+  padding-top: var(--sPT);
+  padding-bottom: var(--sPB);
+
+  --sPT: 20px;
+  --sPB: 40px;
+  @include media-breakpoint-up(md){
+    --sPT: #{rem(40)};
+    --sPB: #{rem(91)};
+  }
+
+  &__row{
+    @include media-breakpoint-up(xxl){
+      --bs-gutter-x: #{rem(40)};
+    }
+  }
+  &__sb-col{
+    @include media-breakpoint-up(xxl){
+      width: calc(#{rem(260)} + var(--bs-gutter-x));
+    }
+  }
+  &__sidebar{
+    margin-bottom: 20px;
+    @include media-breakpoint-up(xl){
+      margin-bottom: rem(40);
+    }
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  &__dd-item{
+    margin-bottom: rem(10);
+    &:last-child{
+      margin-bottom: 0;
+    }
+
+    --head-br: 5px;
+
+    &.active{
+      --chevron-rot: 180deg;
+    }
+  }
+  &__dd-head{
+    @extend .btn;
+    @extend .btn-dark;
+    text-align: left;
+
+    font-size: rem(14);
+    padding: rem(12) rem(10) rem(12) rem(15);
+
+    border: 2px solid $dark;
+    &:hover{
+      border: 2px solid $primary;
+    }
+
+    position: relative;
+    z-index: 2;
+    border-radius: var(--head-br);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:after{
+      @include mt();
+      flex-shrink: 0;
+      transform: rotateX(var(--chevron-rot, 0deg));
+
+      content: '';
+      width: rem(12);
+      height: rem(12);
+      margin-left: rem(5);
+
+      background-image: url(../img/svg/chevron-down.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+  &__dd-content{
+    background-color: $white;
+    margin-top: calc((var(--head-br) + 1px) * -1);
+    padding: calc(var(--head-br) + 1px) rem(20) rem(8);
+    border-radius: 0 0 var(--head-br) var(--head-br);
+
+    display: none;
+    &.active{
+      display: block;
+    }
+
+    ul{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li{
+        border-bottom: 1px solid $gray-320;
+        &:last-child{
+          border-bottom: 0;
+        }
+
+        a{
+          display: block;
+          padding: rem(11) 0;
+          font-weight: 500;
+
+          font-size: 14px;
+          line-height: calc(17/14);
+          color: $gray-550;
+          &:hover{
+            color: $body-color;
+          }
+        }
+      }
+    }
+  }
+  //
+  &__seo{
+    h2{
+      font-weight: bold;
+      font-size: 22.4px;
+      margin-bottom: rem(20);
+      @include media-breakpoint-up(sm){
+        font-size: rem(29.3);
+        margin-bottom: rem(40);
+      }
+      line-height: calc(39/32);
+      text-transform: uppercase;
+    }
+
+    p{
+      font-size: 13px;
+      @include media-breakpoint-up(sm){
+        font-size: rem(15.1);
+      }
+      line-height: 1.35;
+    }
+
+    & > *:last-child{
+      margin-bottom: 0;
+    }
+
+    ul{
+      padding: 0;
+      margin: 0 0 rem(20);
+      list-style: none;
+
+      font-size: 13px;
+      @include media-breakpoint-up(sm){
+        font-size: rem(15.1);
+      }
+      line-height: 1.35;
+
+      li{
+        &:before{
+          content: '-';
+          margin-right: 3px;
+        }
+      }
+
+    }
+  }
+
+  //
+  &__actual-title{
+    font-weight: bold;
+    font-size: rem(20);
+    line-height: calc(24/20);
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+  }
+  &__a-items{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li{
+      margin-bottom: rem(10);
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+    a{
+      width: 100%;
+      @extend .btn;
+      @extend .btn-dark;
+      text-align: left;
+
+      font-size: rem(14);
+      padding: rem(12) rem(10) rem(12) rem(15);
+
+      border: 2px solid $dark;
+      &:hover{
+        border: 2px solid $primary;
+      }
+
+      position: relative;
+      z-index: 2;
+    }
+  }
+  &__{}
+  &__{}
+  &__{}
+  &__{}
+}
+//
+.breadcrumb{
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin: 0 0 20px;
+
+  .breadcrumb-item{
+    display: inline-flex;
+    align-items: center;
+
+    &:first-child{
+      &:before{
+        content: none;
+      }
+    }
+
+    &:before{
+      content: '';
+      flex-shrink: 0;
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba($gray-550, .3);
+      margin: 0 10.5px;
+    }
+
+    & > a, & > span{
+      display: inline-block;
+      font-size: 14px;
+      line-height: calc(17/14);
+      color: $gray-550;
+    }
+  }
+}
+
+//
+.form-select{
+  cursor: pointer;
+
+  background-image: url(../img/svg/chevron-down.svg);
+  background-repeat: no-repeat;
+  background-size: 12px;
+
+  background-position-x: calc(100% - 10px);
+  @include media-breakpoint-up(sm){
+    background-position-x: calc(100% - #{rem(15)});
+  }
+
+
 }

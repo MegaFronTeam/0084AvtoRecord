@@ -74,9 +74,12 @@ $h: em(2);
 .menu-mobile {
   position: fixed !important;
   z-index: 999;
-  max-width: 85%;
   height: calc(var(--vh, 1vh) * 100);
-  width: 280px;
+
+  width: 100%;
+  @include media-breakpoint-up(sm){
+    width: 375px;
+  }
   top: 0;
   right: 0;
   background-color: $white;
@@ -91,7 +94,6 @@ $h: em(2);
   will-change: transform;
 
   &__inner {
-    padding: rem(20);
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -99,6 +101,10 @@ $h: em(2);
     @include mt(.3s);
     transition-delay: .4s;
     opacity: var(--opacity);
+
+    //
+    background-color: $body-color;
+    color: $white;
   }
 
   &.active {
@@ -107,32 +113,187 @@ $h: em(2);
     }
   }
 
-  .toggle-menu-mobile {
-    cursor: pointer;
-    margin-left: -15%;
-    position: absolute;
-    opacity: 0;
-    left: 0;
-    right: auto;
-    color: #FFF;
-    top: 10px;
-    z-index: 9999;
-    background-color: transparent;
+  //
+  &__box{
+    padding: 16px 20px 40px;
 
-    span,
-    span:after,
-    span:before {
-      background-color: #FFF;
+    &--top{
+      border-bottom: 1px solid $primary;
+      margin-bottom: 20px;
+    }
+  }
+  &__cb-cont{
+    margin-bottom: 8px;
+  }
+  &__close-btn{
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+
+    align-items: center;
+    justify-content: center;
+
+    img{
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  //-
+  .menu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    & > .menu-item{
+      margin-bottom: rem(10);
+      &.menu-item-has-children{
+        display: flex;
+        flex-wrap: wrap;
+
+        align-items: center;
+        justify-content: space-between;
+
+        &.active{
+          &:after{
+            transform: rotateX(180deg);
+          }
+        }
+
+        &:after{
+          @include mt();
+          margin-left: 12px;
+          content: '';
+          width: 12px;
+          height: 12px;
+
+          background-image: url(../img/svg/chevron-down.svg);
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+      & > a{
+        display: block;
+        font-size: rem(26);
+        line-height: calc(32/26);
+        text-transform: uppercase;
+        color: $white;
+      }
+    }
+  }
+  .sub-menu{
+    width: 100%;
+    order: 1;
+    list-style: none;
+    padding: 5px 0 5px 10px;
+    margin: 0;
+
+    display: none;
+    &.active{
+      display: block;
     }
 
-    &.on {
-      opacity: 1;
-
-      span {
-        background-color: transparent;
+    .menu-item{
+      margin-bottom: 10px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+      a{
+        display: block;
+        font-size: 17px;
+        line-height: 1.5;
+        color: $white;
       }
     }
   }
 
+  //.f-tell
+  .f-tell{
+    margin-bottom: 40px;
+    &__tell-bl{
+      margin-bottom: rem(23px);
+      &--wa{
+        margin-bottom: rem(18);
+      }
+    }
+    &__tel{
+      display: inline-block;
+      font-weight: 600;
+      font-size: 24px;
+      color: $white;
+    }
+    &__gray{
+      color: $gray-550;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+    //
+    &__wa-row{
+      --bs-gutter-x: 17px;
+    }
+    &__wa-img{
+      width: 25px;
 
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  //
+
+  .big-link{
+    display: inline-block;
+    font-weight: 600;
+    color: $primary;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  //
+  .f-address{
+    margin-bottom: 40px;
+    &__item{
+      margin-bottom: 20px;
+
+      p{
+        margin-bottom: rem(10);
+      }
+
+      & > *:last-child{
+        margin-bottom: 0;
+      }
+
+      font-size: 16px;
+      line-height: 1.5;
+      color: $gray-550;
+    }
+    &__i-title{
+      font-weight: bold;
+      color: $white;
+      @include media-breakpoint-up(sm){
+        margin-bottom: 2px;
+      }
+    }
+    &__mnu-rights{
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.5;
+      color: $gray-550;
+    }
+  }
+
+  .f-soc-row{
+    --bs-gutter-x: #{rem(10)};
+    &__soc-item{
+      width: 30px;
+      height: 30px;
+      padding: 7px;
+    }
+  }
+  &__{}
+  &__{}
+  &__{}
 }

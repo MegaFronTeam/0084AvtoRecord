@@ -37,14 +37,14 @@ const JSCCommon = {
 				PREV: "Назад",
 			},
 
-			// on: {
-			// 	initCarousel: (fancybox, slide) => {
-			//
-			// 	},
-			// 	destroy: (fancybox, slide) => {
-			//
-			// 	},
-			// },
+			on: {
+				initCarousel: (fancybox, slide) => {
+					$('body').addClass('fancybox-active');
+				},
+				destroy: (fancybox, slide) => {
+					$('body').removeClass('fancybox-active');
+				},
+			},
 		});
 
 		$(".modal-close-js").click(function () {
@@ -113,15 +113,6 @@ const JSCCommon = {
 		}, { passive: true });
 	},
 	//
-	tabscostume(tab) {
-		$('.' + tab + '__caption').on('click', '.' + tab + '__btn:not(.active)', function (e) {
-			$(this)
-				.addClass('active').siblings().removeClass('active')
-				.closest('.' + tab).find('.' + tab + '__content').hide().removeClass('active')
-				.eq($(this).index()).fadeIn().addClass('active');
-
-		});
-	},
 	inputMask() {
 		let InputTel = document.querySelectorAll('input[type="tel"]');
 		for (let input of InputTel){
@@ -209,7 +200,6 @@ function eventHandler() {
 	JSCCommon.heightwindow();
 	JSCCommon.inputMask();
 	// JSCCommon.ifie();
-	// JSCCommon.tabscostume('tabs');
 	JSCCommon.mobileMenu();
 	// JSCCommon.sendForm();
 	// JSCCommon.animateScroll(headerH);
@@ -223,9 +213,13 @@ function eventHandler() {
 
 	//luckyoneJs
 	let topNav = document.querySelector(".top-nav--js");
+	let botFixed = document.querySelector(".fixed-box--js");
 	function calcHeaderHeight() {
 		document.documentElement.style.setProperty('--header-h', `${topNav.offsetHeight}px`);
 		headerH = topNav.offsetHeight;
+		if(botFixed){
+			document.documentElement.style.setProperty('--bot-fixed-h', `${botFixed.offsetHeight}px`);
+		}
 
 		if (!topNav) return;
 		window.scrollY > 0
@@ -278,6 +272,94 @@ function eventHandler() {
 			clickable: true,
 		},
 	});
+	//ultimate tabs
+	let cTabs = document.querySelectorAll('.tabs');
+	for (let tab of cTabs){
+		let Btns = tab.querySelectorAll('.tabs__btn')
+		let contentGroups = tab.querySelectorAll('.tabs__wrap');
+
+		for (let btn of Btns){
+			btn.addEventListener('click', function (){
+
+				for (let btn of Btns){
+					btn.classList.remove('active');
+				}
+				this.classList.add('active');
+
+				let index = getIndex(btn,Btns);
+
+				for (let cGroup of contentGroups){
+					let contentItems = cGroup.querySelectorAll('.tabs__content');
+
+					for (let item of contentItems){
+						item.classList.remove('active');
+					}
+					contentItems[index].classList.add('active');
+				}
+			})
+		}
+	}
+	function getIndex(htmlEl, itemsNodeList){
+		for(let [itemIndex, item] of Object.entries(itemsNodeList)){
+			if (item === htmlEl){
+				return itemIndex;
+			}
+		}
+	}
+	//
+	$('.free-dd-head-js').click(function () {
+		$(this.parentElement).toggleClass('active');
+		$(this.parentElement).find('.free-dd-content-js').slideToggle(function () {
+			$(this).toggleClass('active');
+		});
+	});
+	function makeDDGroup(ArrSelectors){
+		for (let parentSelect of ArrSelectors){
+			let parent = document.querySelector(parentSelect);
+			if (parent){
+				// childHeads, kind of funny))
+				let ChildHeads = parent.querySelectorAll('.dd-head-js:not(.disabled)');
+				$(ChildHeads).click(function (){
+					let clickedHead = this;
+
+					$(ChildHeads).each(function (){
+						if (this === clickedHead){
+							//parent element gain toggle class, style head change via parent
+							$(this.parentElement).toggleClass('active');
+							$(this.parentElement).find('.dd-content-js').slideToggle(function (){
+								$(this).toggleClass('active');
+							});
+						}
+						else{
+							$(this.parentElement).removeClass('active');
+							$(this.parentElement).find('.dd-content-js').slideUp(function (){
+								$(this).removeClass('active');
+							});
+						}
+					});
+
+				});
+			}
+		}
+	}
+	makeDDGroup([
+		'.sAddInfo-dd-group-js',
+	]);
+	//
+
+	$('.set-curr-year-js').each(function (){
+		this.innerHTML = new Date().getFullYear();
+	})
+	//footer
+	$('.close-policy-js').click(function (){
+		$('.gray-f--js').slideUp();
+	})
+	//.menu-mobile--js
+	$('.menu-mobile--js .menu-item-has-children').click(function (){
+		$(this).find('.sub-menu').slideToggle(function (){
+			$(this).toggleClass('active');
+		})
+	})
 
 };
 

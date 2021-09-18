@@ -1,0 +1,33 @@
+extends layout/main.pug
+
+
+include ../blocks/sContent/_sContent.pug
+include ../blocks/sContact/_sContact.pug
+include ../blocks/sAddInfo/_sAddInfo.pug
+include ../blocks/sSoc/_sSoc.pug
+include ../blocks/sCatalog/_sCatalog.pug
+include ../blocks/sFeedBack/_sFeedBack.pug
+include ../blocks/sWorks/_sWorks.pug
+
+block variables
+	- let  mainPage= 'main-page' 
+	- let  bg='04-375.png'
+
+block title
+	- let  title= '04-works'
+	title= title
+block pagecontent
+	+mob-mnu()
+	+header()
+		+topLine()
+		+top-nav()
+		+menuLine()
+	+pageHead({
+		breadcrumbs: ['Главная', 'Галерея'],
+		seoBox: true,
+	})
+		+sWorks()
+	+footer()
+	+b.fixed-box--js
+		+blueFixed()
+		+grayFixed()

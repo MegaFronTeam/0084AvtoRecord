@@ -33,9 +33,9 @@ mixin headerBlock()
 	// end headerBlock
 
 mixin headerBlockCard(imgNum, addClasses='', title='СПЕЦТЕХНИКА', txt='Удлинение, производство еврофургонов.')
-	+e.card(href="#" class=addClasses)
+	+b.cat-card(href="#" class=addClasses)
 		img(loading="lazy" src=`img/@2x/headerBlock-card-${imgNum}.jpg` alt="")
-		+e.c-content
+		+e.content
 			h6!=title
 			p!=txt
 
