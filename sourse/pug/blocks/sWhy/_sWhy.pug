@@ -1,0 +1,23 @@
+mixin sWhy(data)
+	// start sWhy
+	+b.SECTION.sWhy.section#sWhy&attributes(attributes)
+		.container
+			+b.section-title
+				h2
+					| Почему работать с нами
+					|
+					span удобно и выгодно
+			.row.gy-20
+				+sWhyItem(1, `Производство <br> в Нижнем Новгороде`)
+				+sWhyItem(2, `Низкие цены`)
+				+sWhyItem(3, `Грамотное оформление <br> всей документации`)
+				+sWhyItem(4, `Высококвалифицированный <br> персонал`)
+
+	// end sWhy
+
+mixin sWhyItem(imgNum, txt)
+	.col-sm-6.col-lg-3
+		+e.item.text-center
+			+e.img
+				img(loading="lazy" src=`img/svg/sWhyItem-${imgNum}.svg` alt="")
+			+e.txt!=txt

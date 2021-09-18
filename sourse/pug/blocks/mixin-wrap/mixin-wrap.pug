@@ -13,22 +13,23 @@ mixin pageHead(data)
 	+b.page-head
 		.container
 			+e.row.row
-				+e.sb-col.col-lg-3.d-none.d-lg-block
-					+e.sidebar
-						+pageHeadSbItem('Справка о компании', 'active')
-						+pageHeadSbItem('Изготовление еврофургонов')
-						+pageHeadSbItem('Бортовые платформы')
-						+pageHeadSbItem('Спецтехника')
-						+pageHeadSbItem('Дополнительные опции', 'active')
-							li: a(href="#") Инструментальный ящик
-							li: a(href="#") Пневмоподвеска
-							li: a(href="#") Газобалонное оборудование
-					if data.hasActual
-						+e.actual-title Актуально по теме
-						+e.UL.a-items
-							li: a(href="#") Бортовые платформы
-							li: a(href="#") Бортовые платформы
-							li: a(href="#") Бортовые платформы
+				if !data.noSidebar
+					+e.sb-col.col-lg-3.d-none.d-lg-block
+						+e.sidebar
+							+pageHeadSbItem('Справка о компании', 'active')
+							+pageHeadSbItem('Изготовление еврофургонов')
+							+pageHeadSbItem('Бортовые платформы')
+							+pageHeadSbItem('Спецтехника')
+							+pageHeadSbItem('Дополнительные опции', 'active')
+								li: a(href="#") Инструментальный ящик
+								li: a(href="#") Пневмоподвеска
+								li: a(href="#") Газобалонное оборудование
+						if data.hasActual
+							+e.actual-title Актуально по теме
+							+e.UL.a-items
+								li: a(href="#") Бортовые платформы
+								li: a(href="#") Бортовые платформы
+								li: a(href="#") Бортовые платформы
 				.col
 					+breadcrumb(...data.breadcrumbs)
 					block
@@ -51,9 +52,9 @@ mixin pageHeadSbItem(headTxt, activeClass='')
 
 mixin arrow()
 	.swiper-button-hand.swiper-button-hand-prev.swiper-button-prev
-		+icon('chevron-left')
+		img(loading="lazy" src="img/svg/chevron-left.svg" alt="")
 	.swiper-button-hand.swiper-button-hand-next.swiper-button-next
-		+icon('chevron-right')
+		img(loading="lazy" src="img/svg/chevron-right.svg" alt="")
 //- /arrow for swiper-slider
 
 mixin ie11()

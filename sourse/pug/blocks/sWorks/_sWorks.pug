@@ -29,9 +29,9 @@ mixin sWorks(data)
 mixin sWorksItem(data)
 	.col-sm-6.col-md-4
 		+e.item
-			+e.img
+			+e.img.link-modal-js(href="#modal-car")
 				img(loading="lazy" src=`img/@2x/sWorksItem-${data.imgNum}.jpg` alt="")
-			+e.title Газель Фермер
+			+e.title.link-modal-js(href="#modal-car") Газель Фермер
 			+e.descr
 				| Удлинение, производство
 				br

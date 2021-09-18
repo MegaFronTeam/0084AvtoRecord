@@ -1,21 +1,27 @@
-
-mixin modal() 
+mixin modal()
 	//  start modals
-	
 	+b.modal-win(id="modal-call" class=" " style="display: none" )
+		+b.close-modal--js
+			img(loading="lazy" src='img/svg/cross-black.svg' alt='')
 		+form-wrap
 			.text-center
 				+e.title.form-data.h3.ttu Обратный звонок
 				p.after-headline Заполните заявку и&nbsp;мы&nbsp;с&nbsp;Вами свяжемся в&nbsp;течение 15&nbsp;минут
-
-			+input("Ваше Имя")(required)  
-			+e.BUTTON.btn.btn(type="submit"  ) 
-			.p-5
-			.p-5
-			.p-5
-			.p-5
-			.p-5
+				+input("Ваше Имя")(required)
+				+input("Ваш номер", 'tel')(required)
+				+e.BUTTON.btn(type="submit") Обратный звонок
 			+policy()
+	//-
+	+b.modal-car.modal-win(id="modal-car" class="" style="display: none")
+		+b.close-modal--js
+			img(loading="lazy" src='img/svg/cross-black.svg' alt='')
+		+e.img
+			img(loading="lazy" src='img/@2x/headerBlock-card-1.jpg' alt="")
+		+e.name Газель
+		+e.descr
+			p Компания «АвтоРекорд» является сертифицированным поставщиком надстроек на грузовые автомобили марки «ГАЗ» в Нижнем Новгороде и одним из основных направлений нашей деятельности является именно удлинение рам.
+		+e.region
+			span.me-1 Регион:
+			b Москва
 	// #modal-call
-	
 	// end modals

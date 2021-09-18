@@ -1,0 +1,55 @@
+extends layout/main.pug
+
+
+include ../blocks/sContent/_sContent.pug
+include ../blocks/sContact/_sContact.pug
+include ../blocks/sAddInfo/_sAddInfo.pug
+include ../blocks/sSoc/_sSoc.pug
+include ../blocks/sCatalog/_sCatalog.pug
+include ../blocks/sFeedBack/_sFeedBack.pug
+include ../blocks/sWorks/_sWorks.pug
+include ../blocks/s404/_s404.pug
+include ../blocks/sServices/_sServices.pug
+include ../blocks/sWhy/_sWhy.pug
+include ../blocks/sTransform/_sTransform.pug
+include ../blocks/sInsert/_sInsert.pug
+include ../blocks/sPhoto/_sPhoto.pug
+include ../blocks/sVideo/_sVideo.pug
+include ../blocks/sPrice/_sPrice.pug
+include ../blocks/sHowMuch/_sHowMuch.pug
+include ../blocks/sActual/_sActual.pug
+
+block variables
+	- let  mainPage= 'main-page' 
+	- let  bg='08.png'
+
+block title
+	- let  title= '08-services-big'
+	title= title
+block pagecontent
+	+mob-mnu()
+	+header()
+		+topLine()
+		+top-nav()
+		+menuLine()
+	+pageHead({
+		breadcrumbs: ['Главная', 'Услуги'],
+		seoBox: false,
+		hasActual: true,
+		noSidebar: true,
+	})
+		+sServices({
+			long: true,
+		})(class="long")
+	+sWhy()
+	+sTransform()
+	+sInsert()
+	+sPhoto()
+	+sVideo()
+	+sPrice()
+	+sHowMuch()
+	+sActual()
+	+footer()
+	+b.fixed-box--js
+		+blueFixed()
+		+grayFixed()

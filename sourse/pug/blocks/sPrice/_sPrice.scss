@@ -1,0 +1,120 @@
+// start .sPrice
+.sPrice {
+	--sPT: 40px;
+	--sPB: 40px;
+	--sTPB: 20px;
+	@include media-breakpoint-up(lg){
+		--sPT: #{rem(40)};
+		--sPB: #{rem(80)};
+		--sTPB: #{rem(40)};
+	}
+
+	.section-title{
+		h2{
+			font-size: 18.5px;
+			line-height: 1.2;
+		}
+	}
+	&__items{
+
+	}
+	&__item{
+
+		@include mt();
+		background: $white;
+		border: 1px solid $gray-300;
+		border-radius: 5px;
+		padding: 9px;
+
+		box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.0);
+		&.active{
+			box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+			--chevron-rot: 180deg;
+		}
+
+		margin-bottom: 14px;
+		@include media-breakpoint-up(sm){
+			margin-bottom: rem(20);
+		}
+
+	}
+	&__head{
+		cursor: pointer;
+		flex-shrink: 0;
+		padding: 10px;
+
+		display: flex;
+		align-items: center;
+		&:after{
+			@include mt();
+			transform: rotateX(var(--chevron-rot, 0deg));
+
+			margin-left: rem(20);
+			@include media-breakpoint-up(xxl){
+				margin-left: rem(80);
+			}
+
+			content: '';
+			width: 12px;
+			height: 12px;
+
+			background-image: url(../img/svg/chevron-down.svg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+		}
+	}
+	&__h-row{
+		flex-grow: 1;
+		--bs-gutter-x: 10px;
+
+		font-size: 14px;
+		line-height: calc(17/14);
+		@include media-breakpoint-up(sm){
+			font-size: 16px;
+			line-height: calc(20/16);
+		}
+	}
+	&__name-col{
+		font-weight: 600;
+	}
+	&__price-col{
+		font-weight: bold;
+	}
+	&__content{
+		display: none;
+		&.active{
+			display: block;
+		}
+
+		font-size: 11.25px;
+		line-height: calc(15/11.25);
+		padding: 5px 10px 20px 10px;
+		@include media-breakpoint-up(sm){
+			font-size: 13.5px;
+			line-height: calc(17/13);
+			padding: 0 10px 42px 10px;
+		}
+		p{
+			margin-bottom: 6px;
+		}
+		ul{
+			list-style: none;
+			padding: 0;
+			margin: 0 0 20px;
+			li{
+				color: $gray-550;
+				&:before{
+					content: '-';
+					margin-right: 4px;
+				}
+			}
+		}
+
+		& > *:last-child{
+			margin-bottom: 0;
+		}
+	}
+	&__{}
+	&__{}
+} // end.sPrice

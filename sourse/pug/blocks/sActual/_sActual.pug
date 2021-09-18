@@ -1,0 +1,15 @@
+mixin sActual(data)
+	// start sActual
+	+b.SECTION.sActual.section#sActual&attributes(attributes)
+		.container
+			+b.section-title
+				h2 Актуально по теме
+			+e.row.row
+				+sActualItem()
+				+sActualItem()
+				+sActualItem()
+	// end sActual
+
+mixin sActualItem()
+	.col-md-6.col-lg-4
+		+e.item(href="#") Бортовые платформы

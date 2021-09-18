@@ -47,7 +47,7 @@ const JSCCommon = {
 			},
 		});
 
-		$(".modal-close-js").click(function () {
+		$(".modal-close-js, .close-modal--js").click(function () {
 			Fancybox.close();
 		})
 		// fancybox.defaults.backFocus = false;
@@ -344,6 +344,7 @@ function eventHandler() {
 	}
 	makeDDGroup([
 		'.sAddInfo-dd-group-js',
+		'.sPrice-dd-items-js',
 	]);
 	//
 
@@ -352,16 +353,71 @@ function eventHandler() {
 	})
 	//footer
 	$('.close-policy-js').click(function (){
-		$('.gray-f--js').slideUp();
+		$('.gray-f--js').slideUp(function (){
+			calcHeaderHeight();
+		});
 	})
 	//.menu-mobile--js
 	$('.menu-mobile--js .menu-item-has-children').click(function (){
 		$(this).find('.sub-menu').slideToggle(function (){
 			$(this).toggleClass('active');
 		})
-	})
+	});
+
+	//-
+	let swiperControllParents = document.querySelectorAll('.swiper-controlls-parent-js');
+	for (let parent of swiperControllParents){
+		let sliderCont = parent.querySelector('.c-slider-js');
+
+		let prev = parent.querySelector('.swiper-button-prev');
+		let next = parent.querySelector('.swiper-button-next');
+
+		let slider = new Swiper(sliderCont, {
+			slidesPerView: 'auto',
+			spaceBetween: 20,
+			loop: true,
+
+			navigation: {
+				nextEl: next,
+				prevEl: prev,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				type: 'bullets',
+				clickable: true,
+			},
+		});
+	}
+
+	let scrollTopBtn = document.querySelector('.scroll-top--js')
+	$(scrollTopBtn).click(function (){
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth"
+		})
+	});
+
+	if (scrollTopBtn){
+		window.addEventListener("scroll", toggleFixedBtn.bind(undefined, scrollTopBtn), {passive:  true});
+		toggleFixedBtn(scrollTopBtn);
+	}
+	function toggleFixedBtn(fixedStrip){
+		if (window.scrollY > calcVh(50)){
+			$(fixedStrip).addClass('active');
+		}
+		else{
+			$(fixedStrip).removeClass('active');
+		}
+	}
+	function calcVh(v) {
+		var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+		return (v * h) / 100;
+	}
 
 };
+
+
+
 
 if (document.readyState !== 'loading') {
 	eventHandler();

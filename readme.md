@@ -8,3 +8,4 @@
 1. <https://luckyone1221.github.io/0084AvtoRecord/public/05-404.html>
 1. <https://luckyone1221.github.io/0084AvtoRecord/public/06-contacts.html>
 1. <https://luckyone1221.github.io/0084AvtoRecord/public/07-services.html>
+1. <https://luckyone1221.github.io/0084AvtoRecord/public/08-services-big.html>

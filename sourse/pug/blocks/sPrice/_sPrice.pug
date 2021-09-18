@@ -1,0 +1,34 @@
+mixin sPrice(data)
+	// start sPrice
+	+b.SECTION.sPrice.section#sPrice&attributes(attributes)
+		.container
+			+b.section-title
+				h2 Ценовые предложения
+			+e.items.sPrice-dd-items-js
+				+sPriceItem()
+				+sPriceItem()
+				+sPriceItem()
+				+sPriceItem('active')
+
+	// end sPrice
+
+mixin sPriceItem(activeClasses='')
+	+e.item(class=activeClasses)
+		+e.head.dd-head-js
+			+e.h-row.row
+				+e.name-col.col-lg-8 Еврофургоны и бортовые платформы
+				+e.price-col.col-lg-4.text-lg-end от 25 000 ₽- 55000 ₽
+		+e.content.dd-content-js(class=activeClasses)
+			p Стоимость включает:
+			ul
+				li усилением косынками
+				li подрамник профильная труба 120х60x3 мм
+				li пол транспортная фанера 18мм
+				li крыша "Антилед"(скатная),
+				li фальшборт - ламинированная фанера 9мм
+				li передний борт 18мм. фанера
+				li боковая и верхняя габаритная диодная подсветка
+				li импортный тент плотностью 750 г/м2
+				li три петли на воротах
+				li фурнитура ПУШ
+				li отбойник

@@ -1,0 +1,78 @@
+// start .sPhoto
+.sPhoto {
+	--sPT: 12px;
+	--sPB: 12px;
+	--sTPB: 20px;
+	@include media-breakpoint-up(lg){
+		--sPT: #{rem(35)};
+		--sPB: #{rem(40)};
+		--sTPB: #{rem(40)};
+	}
+
+	&__top-row{
+		padding-bottom: 20px;
+	}
+	.section-title{
+		padding-bottom: 0;
+		h2{
+			font-size: 18.5px;
+			line-height: calc(24/18);
+		}
+	}
+
+	&__arrow-col{
+		display: flex;
+		align-items: center;
+
+		& > *:first-child{
+			margin-right: 12px;
+		}
+	}
+	&__slider-wrap{
+
+		.swiper-container{
+
+		}
+		.swiper-wrapper{
+			padding-bottom: 10px;
+			@include media-breakpoint-up(md){
+				padding-bottom: 0;
+			}
+		}
+		.swiper-slide{
+			width: 100%;
+			@include media-breakpoint-up(sm){
+				width: calc(100%/2 - 20px*1/2);
+			}
+			@include media-breakpoint-up(md){
+				width: calc(100%/3 - 20px*2/3);
+			}
+			@include media-breakpoint-up(xl){
+				width: calc(100%/4 - 20px*3/4);
+			}
+		}
+
+		//
+		.swiper-pagination{
+			&-bullet {
+				width: 12px;
+				height: 12px;
+				margin-left: 6px;
+				margin-right: 6px;
+
+				background-color: rgba($gray-550, .5);
+				&-active,
+				&:hover {
+					background-color: var(--bs-primary);
+				}
+			}
+
+		}
+	}
+
+	&__{}
+	&__{}
+	&__{}
+	&__{}
+	&__{}
+} // end.sPhoto

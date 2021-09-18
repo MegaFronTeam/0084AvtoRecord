@@ -1,0 +1,28 @@
+mixin sInsert(data)
+	// start sInsert
+	+b.SECTION.sInsert.swiper-controlls-parent-js.section#sInsert&attributes(attributes)
+		.container
+			+e.top-row.row.align-items-center
+				.col-md
+					+b.section-title
+						h2 Вставка фото (до 10 шт.),  с прокруткой
+				+e.arrow-col.col-md-auto.d-none.d-md-flex
+					+arrow()
+			+e.slider-wrap
+				.swiper-container.c-slider-js
+					.swiper-wrapper
+						+sInsertSlide(1)
+						+sInsertSlide(2)
+						+sInsertSlide(3)
+						+sInsertSlide(1)
+					.swiper-pagination.d-md-none
+	// end sInsert
+
+mixin sInsertSlide(imgNum)
+	.swiper-slide
+		+e.img(href=`img/@2x/sInsert-cert-${imgNum}.jpg` data-fancybox="sInsert-galery")
+			img(loading="lazy" src=`img/@2x/sInsert-cert-${imgNum}.jpg` alt="")
+		+e.content
+			+e.title Свидетельство
+			+e.descr
+				p Компания «АвтоРекорд» является сертифицированным поставщиком надстроек на автомобили марки «ГАЗ».

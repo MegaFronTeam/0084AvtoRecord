@@ -1,0 +1,22 @@
+mixin sTransform(data)
+	// start sTransform
+	+b.SECTION.sTransform.section#sTransform&attributes(attributes)
+		.container
+			+b.section-title
+				h2
+					| Переоборудование
+					br
+					span грузовых автомобилей
+			+e.box
+				+e.row-wrap
+					+e.row.row
+						+sTransformCol()
+						+sTransformCol()
+	// end sTransform
+
+mixin sTransformCol()
+	+e.col.col-6
+		+e.title Газель Фермер
+		+e.content
+			p Компания «АвтоРекорд» является сертифицированным поставщиком надстроек на грузовые автомобили марки «ГАЗ» в Нижнем Новгороде и одним из основных направлений нашей деятельности является именно удлинение рам.
+			p.d-none.d-sm-block Получение дополнительной прибыли нашими клиентами за счет увеличения площади рам грузовых авто является главным аспектом популярности данной услуги.

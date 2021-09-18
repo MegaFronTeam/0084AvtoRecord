@@ -1,0 +1,21 @@
+mixin sHowMuch(data)
+	// start sHowMuch
+	+b.SECTION.sHowMuch.section#sHowMuch&attributes(attributes)
+		.container
+			.row.align-items-center
+				+e.title-col.col-md-6.col-xl-5.text-center.text-md-start
+					+b.section-title
+						h2 Сколько стоит переоборудоваться в&#160;комплексе?
+						p
+							| Под ваш автомобиль, размеры,
+							|
+							br
+							| с еврофургоном/платформой, регистрацией в ГИБДД и т.д.
+					+e.btn(href="#") Отправить заявку
+					+e.img-mob.d-md-none
+						img(loading="lazy" src='img/@2x/sHowMuch-car-mob.png' alt="")
+				.col-md-6.col-xl-7.d-none.d-md-block
+					+e.img
+						img(loading="lazy" src='img/@2x/sHowMuch-car.png' alt="")
+
+	// end sHowMuch
