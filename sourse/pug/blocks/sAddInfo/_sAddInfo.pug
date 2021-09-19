@@ -8,31 +8,28 @@ mixin sAddInfo(data)
 					|
 					span информация
 			+b.tabs.row.sAddInfo-dd-group-js
-				.col-md-6.col-lg-5
+				.col-md-6.col-lg-5.d-none.d-md-block
 					+sAddInfoTabsBtn('Справка о компании')
-						+sAddInfoTabsBtnContent('1', 'dd-content-js d-md-none')
 					+sAddInfoTabsBtn('Выполненные проекты', 'active')
-						+sAddInfoTabsBtnContent('', 'dd-content-js d-md-none active')
 					+sAddInfoTabsBtn('Информация для заказчиков')
-						+sAddInfoTabsBtnContent('3', 'dd-content-js d-md-none')
 					+sAddInfoTabsBtn('Отзывы клиентов')
-						+sAddInfoTabsBtnContent('4', 'dd-content-js d-md-none')
-				+e.wrap.col-md-6.col-lg-7.d-none.d-md-block
-					+sAddInfoTabsBtnContent('1')
-					+sAddInfoTabsBtnContent('', 'active')
-					+sAddInfoTabsBtnContent('3')
-					+sAddInfoTabsBtnContent('4')
+				+e.wrap.col-md-6.col-lg-7
+					+sAddInfoTabsBtnContent('1', 'Справка о компании')
+					+sAddInfoTabsBtnContent('', 'Выполненные проекты', 'active')
+					+sAddInfoTabsBtnContent('3', 'Информация для заказчиков')
+					+sAddInfoTabsBtnContent('4', 'Отзывы клиентов')
 
 	// end sAddInfo
 
 mixin sAddInfoTabsBtn(txt, addClasses='')
-	+e.dd-item
-		+e.btn.dd-head-js(class=addClasses)=txt
-		block
+	+e.btn(class=addClasses)=txt
 
-mixin sAddInfoTabsBtnContent(num='', addClasses='')
-	+e.content(class=addClasses)
-		+e.txt
-			p=`Производство еврофургонов, эвакуаторов и самосвалов на базе машин отечественных и зарубежных марок, удлинение грузовых автомобилей, а также установка пневмоподвески.${num}`
-		.text-md-end
-			+e.more-btn(href="#") Подробнее
+mixin sAddInfoTabsBtnContent(num='', txt, addClasses='')
+	+e.dd-item(class=addClasses)
+		+e.mob-btn.dd-head-js.d-md-none=txt
+		.dd-content-js(class=addClasses)
+			+e.content(class=addClasses)
+				+e.txt
+					p=`Производство еврофургонов, эвакуаторов и самосвалов на базе машин отечественных и зарубежных марок, удлинение грузовых автомобилей, а также установка пневмоподвески.${num}`
+				.text-md-end
+					+e.more-btn(href="#") Подробнее

@@ -14,13 +14,39 @@ mixin mnu()
 			a(href="#" itemprop="url") Услуги
 			ul.sub-menu
 				-
-					var subnav= { 
+					var subnav= {
 						"Удлинение грузовых автомобилей":"#",
 						"Изготовление еврофургонов":"#",
 						"Бортовые платформы":"#",
 						"Переоборудование в спецтехнику":"#",
 						"Дополнительные услуги":"#",
 						"Контакты":"#",
+					}
+				each sublinkPatch, sublinkName in subnav
+					li.menu-item: a(href=sublinkPatch)= sublinkName
+		each linkPatch, linkName in nav
+			li.menu-item: a(href=linkPatch)= linkName
+//- menu
+
+mixin mnu2()
+	-
+		var nav = {
+			"Наши работы": "#",
+			"О компании": "#",
+			"Акции": "#",
+			"Отзывы": "#",
+			"Контакты": "#",
+		}
+	ul.menu
+		li.menu-item: a(href="#") Главная
+		li.menu-item.menu-item-has-children
+			a(href="#" itemprop="url") Услуги
+			ul.sub-menu
+				-
+					var subnav = {
+						"Спецтехника": "#",
+						"Валдай": "#",
+						"Газель": "#",
 					}
 				each sublinkPatch, sublinkName in subnav
 					li.menu-item: a(href=sublinkPatch)= sublinkName

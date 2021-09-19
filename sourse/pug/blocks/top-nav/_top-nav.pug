@@ -5,7 +5,7 @@ mixin mob-mnu()
 				+e.cb-cont.text-end
 					+e.close-btn(class="toggle-menu-mobile--js")
 						img(loading="lazy" src="img/svg/cross.svg" alt="")
-				+mnu()
+				+mnu2()
 			+e.box--foot
 				+b.f-tell
 					+footerTellBl('89308088580', '8 (930) 808-85-80', 'бесплатно по России')
@@ -33,7 +33,8 @@ mixin mob-mnu()
 						span.set-curr-year-js 2020
 						br
 						| ИНН 5256171974, ОГРН 1185275017124
-				+footerSoc('')
+				//-+footerSoc('')
+				+soc()
 
 mixin top-nav()
 	+b.top-nav--js.block-with-lazy
@@ -56,6 +57,7 @@ mixin top-nav()
 							+e.icon
 								img(loading="lazy" src="img/svg/tell.svg" alt="")
 							+e.number.d-none.d-lg-block 8 800 222 97 92
+						+tellDD()
 					+e.callback.d-none.d-lg-inline-block(href="#") Обратный звонок
 	// end top-nav
 
@@ -63,3 +65,15 @@ mixin menuLine()
 	+b.menu-line.d-none.d-lg-block
 		.container
 			+mnu()
+
+mixin tellDD()
+	+b.tell-dd
+		+e.inner
+			+tellDDItem('8 (930) 808-85-80', '89308088580', 'бесплатно по России')
+			+tellDDItem('8 (800) 222-97-92', '88002229792', 'городской')
+			+tellDDItem('8 (831) 216-07-97', 'https://api.whatsapp.com/send/?phone=88312160797', 'whats up - для звонков из зарубежа')
+
+mixin tellDDItem(tell, tellHref, gray)
+	+e.item
+		+e.tell(href=tellHref)=tell
+		+e.gray=gray

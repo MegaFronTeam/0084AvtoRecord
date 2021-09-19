@@ -7,6 +7,10 @@
 	fill: currentColor;
 }
 
+.icon-chevron-top {
+	font-size:math.div(14,10)*1rem;
+	width: math.div(14,14)*1em;
+}
 .icon-clock {
 	font-size:math.div(12,10)*1rem;
 	width: math.div(12,12)*1em;
@@ -14,6 +18,26 @@
 .icon-location {
 	font-size:math.div(12,10)*1rem;
 	width: math.div(12,12)*1em;
+}
+.icon-soc-fb {
+	font-size:math.div(12,10)*1rem;
+	width: math.div(13,12)*1em;
+}
+.icon-soc-inst {
+	font-size:math.div(12,10)*1rem;
+	width: math.div(13,12)*1em;
+}
+.icon-soc-tw {
+	font-size:math.div(12,10)*1rem;
+	width: math.div(12,12)*1em;
+}
+.icon-soc-vk {
+	font-size:math.div(13,10)*1rem;
+	width: math.div(13,13)*1em;
+}
+.icon-soc-yt {
+	font-size:math.div(444.44,10)*1rem;
+	width: math.div(500,444.44)*1em;
 }
 .icon-star {
 	font-size:math.div(20,10)*1rem;

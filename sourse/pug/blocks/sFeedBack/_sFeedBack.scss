@@ -86,7 +86,7 @@
 		@include media-breakpoint-up(sm){
 			--icon-size: #{rem(20)};
 		}
-		width: var(--icon-size);
+		width: calc(var(--icon-size) + var(--bs-gutter-x));
 		height: var(--icon-size);
 
 		display: flex;

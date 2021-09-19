@@ -8,12 +8,7 @@ mixin topLine()
 				+e.col--middle.col-auto
 					+topLineImgItem('clock', 'Режим работы: будни 8:00 - 17:00')
 				.col
-					+e.soc-row.row.justify-content-end
-						+topLineSocItem('vk')
-						+topLineSocItem('inst')
-						+topLineSocItem('fb')
-						+topLineSocItem('tw')
-						+topLineSocItem('yt')
+					+soc()
 	// end topLine
 
 mixin topLineImgItem(iconName, txt)
@@ -24,4 +19,4 @@ mixin topLineImgItem(iconName, txt)
 mixin topLineSocItem(iconName)
 	.col-auto
 		+e.soc-item(href="#")
-			img(loading="lazy" src=`img/svg/soc-${iconName}.svg` alt="")
+				img(loading="lazy" src=`img/svg/soc-${iconName}.svg` alt="")

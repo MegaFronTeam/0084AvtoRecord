@@ -35,7 +35,15 @@
 		border-radius: 5px;
 	}
 	&__content-col{
-		h4{
+		a:first-child{
+			display: inline-block;
+			font-weight: 700;
+			color: $body-color;
+			&:hover{
+				color: $primary;
+			}
+
+
 			line-height: calc(20/16);
 			font-size: 16px;
 			margin-bottom: 10px;
@@ -56,8 +64,11 @@
 				margin-bottom: rem(20);
 			}
 		}
-		a{
+		a:not(:first-child){
 			color: $gray-550;
+			&:hover{
+				color: $primary;
+			}
 
 			@include media-breakpoint-up(sm){
 				font-size: rem(15.1);

@@ -126,6 +126,30 @@
 
 	//
 	&__c-row{
+		display: grid;
+
+		grid-template-columns: repeat(2, 1fr);
+		@include media-breakpoint-up(lg){
+			grid-template-columns: repeat(4, 1fr);
+		}
+		grid-column-gap: 20px;
+		grid-row-gap: 20px;
+
+		//
+		& > *:first-child{
+			grid-column-start: 1;
+			grid-column-end: 3;
+			grid-row-start: 1;
+			grid-row-end: 3;
+			@include media-breakpoint-up(lg){
+				grid-column-start: 1;
+				grid-column-end: 3;
+				grid-row-start: 1;
+				grid-row-end: 3;
+			}
+		}
+
+
 		margin-bottom: 20px;
 		@include media-breakpoint-up(lg){
 			margin-bottom: rem(40);

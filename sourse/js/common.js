@@ -121,52 +121,6 @@ const JSCCommon = {
 		Inputmask("+9(999)999-99-99").mask(InputTel);
 	},
 	// /inputMask
-	ifie() {
-		if (!!window.MSInputMethodContext && !!document.documentMode) {
-			document.body.insertAdjacentHTML("beforeend", '<div class="browsehappy">	<p class=" container">К сожалению, вы используете устаревший браузер. Пожалуйста, <a href="http://browsehappy.com/" target="_blank">обновите ваш браузер</a>, чтобы улучшить производительность, качество отображаемого материала и повысить безопасность.</p></div>');
-		}
-	},
-	sendForm() {
-		var gets = (function () {
-			var a = window.location.search;
-			var b = new Object();
-			var c;
-			a = a.substring(1).split("&");
-			for (var i = 0; i < a.length; i++) {
-				c = a[i].split("=");
-				b[c[0]] = c[1];
-			}
-			return b;
-		})();
-		// form
-		$(document).on('submit', "form", function (e) {
-			e.preventDefault();
-			const th = $(this);
-			var data = th.serialize();
-			th.find('.utm_source').val(decodeURIComponent(gets['utm_source'] || ''));
-			th.find('.utm_term').val(decodeURIComponent(gets['utm_term'] || ''));
-			th.find('.utm_medium').val(decodeURIComponent(gets['utm_medium'] || ''));
-			th.find('.utm_campaign').val(decodeURIComponent(gets['utm_campaign'] || ''));
-			$.ajax({
-				url: 'action.php',
-				type: 'POST',
-				data: data,
-			}).done(function (data) {
-
-				Fancybox.close();
-				Fancybox.show([{ src: "#modal-thanks", type: "inline" }]);
-				// window.location.replace("/thanks.html");
-				setTimeout(function () {
-					// Done Functions
-					th.trigger("reset");
-					// $.magnificPopup.close();
-					// ym(53383120, 'reachGoal', 'zakaz');
-					// yaCounter55828534.reachGoal('zakaz');
-				}, 4000);
-			}).fail(function () { });
-
-		});
-	},
 	heightwindow() {
 		let vh = window.innerHeight * 0.01;
 		document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -175,20 +129,6 @@ const JSCCommon = {
 			let vh = window.innerHeight * 0.01;
 			document.documentElement.style.setProperty('--vh', `${vh}px`);
 		}, { passive: true });
-	},
-	animateScroll(topShift=80) {
-		$(document).on('click', ".scroll-link", function () {
-			event.preventDefault();
-
-			let targetSelector = $(this).attr("href");
-			if (!document.querySelector(targetSelector)) {
-				$(this).attr("href", '/' + targetSelector);
-			}
-
-			//
-			let targetTop = $(targetSelector).offset().top;
-			$('html, body').animate({ scrollTop: targetTop - topShift}, 0);
-		});
 	},
 };
 const $ = jQuery;
@@ -199,10 +139,7 @@ function eventHandler() {
 	JSCCommon.modalCall();
 	JSCCommon.heightwindow();
 	JSCCommon.inputMask();
-	// JSCCommon.ifie();
 	JSCCommon.mobileMenu();
-	// JSCCommon.sendForm();
-	// JSCCommon.animateScroll(headerH);
 
 	var x = window.location.host;
 	let screenName;
@@ -229,38 +166,6 @@ function eventHandler() {
 	window.addEventListener('resize', calcHeaderHeight, { passive: true });
 	window.addEventListener('scroll', calcHeaderHeight, { passive: true });
 	calcHeaderHeight();
-
-	let defaultSl = {
-		spaceBetween: 0,
-		lazy: {
-			loadPrevNext: true,
-		},
-		watchOverflow: true,
-		loop: true,
-
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
-		pagination: {
-			el: ' .swiper-pagination',
-			type: 'bullets',
-			clickable: true,
-		},
-	};
-	let freeMomentum = {
-		freeMode: true,
-		loopFillGroupWithBlank: true,
-		touchRatio: 0.2,
-		slideToClickedSlide: true,
-		freeModeMomentum: true,
-	};
-
-	let swiper = new Swiper('selector', {
-		...defaultSl,
-		...freeMomentum,
-	});
-
 	//
 	let headerBlockSlider = new Swiper('.headerBlock-slider-js', {
 		slidesPerView: 'auto',
@@ -286,7 +191,8 @@ function eventHandler() {
 				}
 				this.classList.add('active');
 
-				let index = getIndex(btn,Btns);
+				let index = [...Btns].indexOf(this);
+				console.log(index);
 
 				for (let cGroup of contentGroups){
 					let contentItems = cGroup.querySelectorAll('.tabs__content');
@@ -299,17 +205,15 @@ function eventHandler() {
 			})
 		}
 	}
-	function getIndex(htmlEl, itemsNodeList){
-		for(let [itemIndex, item] of Object.entries(itemsNodeList)){
-			if (item === htmlEl){
-				return itemIndex;
-			}
-		}
-	}
 	//
-	$('.free-dd-head-js').click(function () {
+
+	$('.free-dd-head-js, .sb-dd-menu-js > li > a').click(function () {
+		event.preventDefault();
+
+		let content = this.parentElement.querySelector('.free-dd-content-js') || this.nextElementSibling;
+
 		$(this.parentElement).toggleClass('active');
-		$(this.parentElement).find('.free-dd-content-js').slideToggle(function () {
+		$(content).slideToggle(function () {
 			$(this).toggleClass('active');
 		});
 	});
@@ -413,7 +317,6 @@ function eventHandler() {
 		var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 		return (v * h) / 100;
 	}
-
 };
 
 

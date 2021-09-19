@@ -17,37 +17,32 @@
 	&__txt{
 		font-size: rem(15.1);
 	}
-	&__soc-row{
-		--bs-gutter-x: #{13.5px};
-		@include media-breakpoint-up(xl){
-			--bs-gutter-x: #{rem(20)};
-		}
-	}
-	&__soc-item{
-		@include mt();
-		width: 40px;
-		height: 40px;
-		padding: 9px;
+
+	.soc{
 		@include media-breakpoint-up(lg){
-			width: rem(60);
-			height: rem(60);
-			padding: rem(14);
+			justify-content: flex-end;
 		}
 
-		//-
-		&:not(:hover){
-			background-color: $gray-610!important;
-		}
+		&__item{
+			@include mt();
+			width: 40px;
+			height: 40px;
+			margin-right: 13.5px;
+			@include media-breakpoint-up(lg){
+				margin-right: 20px;
+				width: rem(60);
+				height: rem(60);
+			}
 
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+			background: $gray-610;
 
-		img{
-			width: 100%;
-			height: auto;
-			max-height: 100%;
+			.icon{
+				font-size: 21px;
+				@include media-breakpoint-up(lg){
+					font-size: rem(32);
+				}
+				color: $white;
+			}
 		}
 	}
 	&__{}

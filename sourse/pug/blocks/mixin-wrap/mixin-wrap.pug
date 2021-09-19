@@ -15,7 +15,7 @@ mixin pageHead(data)
 			+e.row.row
 				if !data.noSidebar
 					+e.sb-col.col-lg-3.d-none.d-lg-block
-						+e.sidebar
+						+e.UL.dd-menu.sb-dd-menu-js
 							+pageHeadSbItem('Справка о компании', 'active')
 							+pageHeadSbItem('Изготовление еврофургонов')
 							+pageHeadSbItem('Бортовые платформы')
@@ -39,16 +39,15 @@ mixin pageHead(data)
 							P Производство еврофургонов, эвакуаторов и самосвалов на базе машин отечественных и зарубежных марок, удлинение грузовых автомобилей, а также установка пневмоподвески, ГБО и п рочими видами усовершенствования коммерческого транспорта.
 
 mixin pageHeadSbItem(headTxt, activeClass='')
-	+e.dd-item(class=activeClass)
-		+e.dd-head.free-dd-head-js=headTxt
-		+e.dd-content.free-dd-content-js(class=activeClass)
-			ul
-				if block
-					block
-				else
-					li: a(href="#") Удлинение газель
-					li: a(href="#") Удлинение газон
-					li: a(href="#") Удлинение next
+	li(class=activeClass)
+		a(href="#")=headTxt
+		ul(class=activeClass)
+			if block
+				block
+			else
+				li: a(href="#") Удлинение газель
+				li: a(href="#") Удлинение газон
+				li: a(href="#") Удлинение next
 
 mixin arrow()
 	.swiper-button-hand.swiper-button-hand-prev.swiper-button-prev

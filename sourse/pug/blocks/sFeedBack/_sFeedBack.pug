@@ -42,6 +42,5 @@ mixin sFeedBackItem(data)
 
 
 mixin sFeedBackStar(addClasses='')
-	.col-auto
-		+e.star(class=addClasses)
-			+icon('star')
+	+e.star.col-auto(class=addClasses)
+		+icon('star')

@@ -511,85 +511,87 @@ body{
       width: calc(#{rem(260)} + var(--bs-gutter-x));
     }
   }
-  &__sidebar{
-    margin-bottom: 20px;
+  &__dd-menu{
+    list-style: none;
+    padding: 0;
+
+    margin: 0 0 20px;
     @include media-breakpoint-up(xl){
-      margin-bottom: rem(40);
+      margin: 0 0 rem(40);
     }
 
     &:last-child{
       margin-bottom: 0;
     }
-  }
-  &__dd-item{
-    margin-bottom: rem(10);
-    &:last-child{
-      margin-bottom: 0;
-    }
 
-    --head-br: 5px;
+    //-
+    & > li{
+      margin-bottom: rem(10);
+      &:last-child{
+        margin-bottom: 0;
+      }
 
-    &.active{
-      --chevron-rot: 180deg;
-    }
-  }
-  &__dd-head{
-    @extend .btn;
-    @extend .btn-dark;
-    text-align: left;
+      --head-br: 5px;
 
-    font-size: rem(14);
-    padding: rem(12) rem(10) rem(12) rem(15);
+      &.active{
+        --chevron-rot: 180deg;
+      }
 
-    border: 2px solid $dark;
-    &:hover{
-      border: 2px solid $primary;
-    }
+      & > a{
+        box-shadow: none!important;
+        @extend .btn;
+        @extend .btn-dark;
+        text-align: left;
 
-    position: relative;
-    z-index: 2;
-    border-radius: var(--head-br);
+        font-size: rem(14);
+        padding: rem(12) rem(10) rem(12) rem(15);
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+        border: 2px solid $dark;
+        &:hover{
+          border: 2px solid $primary;
+        }
 
-    &:after{
-      @include mt();
-      flex-shrink: 0;
-      transform: rotateX(var(--chevron-rot, 0deg));
+        position: relative;
+        z-index: 2;
+        border-radius: var(--head-br);
 
-      content: '';
-      width: rem(12);
-      height: rem(12);
-      margin-left: rem(5);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-      background-image: url(../img/svg/chevron-down.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-    }
-  }
-  &__dd-content{
-    background-color: $white;
-    margin-top: calc((var(--head-br) + 1px) * -1);
-    padding: calc(var(--head-br) + 1px) rem(20) rem(8);
-    border-radius: 0 0 var(--head-br) var(--head-br);
+        &:after{
+          @include mt();
+          flex-shrink: 0;
+          transform: rotateX(var(--chevron-rot, 0deg));
 
-    display: none;
-    &.active{
-      display: block;
-    }
+          content: '';
+          width: rem(12);
+          height: rem(12);
+          margin-left: rem(5);
 
-    ul{
-      list-style: none;
-      padding: 0;
-      margin: 0;
+          background-image: url(../img/svg/chevron-down.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+        }
+      }
+      & > ul{
+        background-color: $white;
+        margin-top: calc((var(--head-br) + 1px) * -1) 0 0 0;
+        padding: calc(var(--head-br) + 1px) rem(20) rem(8);
+        border-radius: 0 0 var(--head-br) var(--head-br);
 
-      li{
-        border-bottom: 1px solid $gray-320;
-        &:last-child{
-          border-bottom: 0;
+        display: none;
+        &.active{
+          display: block;
+        }
+        list-style: none;
+
+        li{
+          border-bottom: 1px solid $gray-320;
+          &:last-child{
+            border-bottom: 0;
+          }
         }
 
         a{
@@ -604,6 +606,7 @@ body{
             color: $body-color;
           }
         }
+
       }
     }
   }
@@ -817,20 +820,24 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  img{
+
+  .icon{
     @include mt();
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
+    color: $primary;
+
+    font-size: rem(12);
+    @include media-breakpoint-up(xxl){
+      font-size: rem(14);
+    }
   }
 
   @extend .btn;
   @extend .btn-white;
+  padding: 0;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   &:hover{
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.24);
-    img{
+    .icon{
       transform: scale(1.3);
     }
   }

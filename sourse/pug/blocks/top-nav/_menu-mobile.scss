@@ -187,7 +187,7 @@ $h: em(2);
     width: 100%;
     order: 1;
     list-style: none;
-    padding: 5px 0 5px 10px;
+    padding: 5px 0 5px 20px;
     margin: 0;
 
     display: none;
@@ -202,7 +202,7 @@ $h: em(2);
       }
       a{
         display: block;
-        font-size: 17px;
+        font-size: 24px;
         line-height: 1.5;
         color: $white;
       }
@@ -285,12 +285,19 @@ $h: em(2);
     }
   }
 
-  .f-soc-row{
-    --bs-gutter-x: #{rem(10)};
-    &__soc-item{
+  .soc{
+    &__item{
+      @include mt();
       width: 30px;
       height: 30px;
-      padding: 7px;
+      margin-right: 10px;
+
+      background: $gray-870;
+
+      .icon{
+        font-size: 16px;
+        color: $white;
+      }
     }
   }
   &__{}
