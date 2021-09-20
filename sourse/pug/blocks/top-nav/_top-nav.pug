@@ -75,5 +75,5 @@ mixin tellDD()
 
 mixin tellDDItem(tell, tellHref, gray)
 	+e.item
-		+e.tell(href=tellHref)=tell
+		+e.tell(href=`tel:${tellHref}`)=tell
 		+e.gray=gray
