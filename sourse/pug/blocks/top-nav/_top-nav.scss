@@ -62,9 +62,9 @@
 		position: relative;
 		z-index: 10;
 
-		&:hover{
-			--tell-dd-scale: 1;
-		}
+		//&:hover{
+		//	--tell-dd-scale: 1;
+		//}
 	}
 
 
@@ -233,6 +233,10 @@
 .tell-dd{
 	@include mt();
 	transform: scaleY(var(--tell-dd-scale, 0));
+	&.active{
+		--tell-dd-scale: 1;
+	}
+
 	transform-origin: top left;
 
 	padding-top: rem(4);

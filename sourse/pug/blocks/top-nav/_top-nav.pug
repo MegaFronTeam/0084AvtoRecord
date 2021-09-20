@@ -53,10 +53,10 @@ mixin top-nav()
 						span Работаем со всей Россией и СНГ
 				.col-auto.text-end.ms-auto.ms-lg-0
 					+e.tell-dd
-						+e.dd-btn
+						+e.dd-btn.tell-dd-btn-js
 							+e.icon
 								img(loading="lazy" src="img/svg/tell.svg" alt="")
-							+e.number.d-none.d-lg-block 8 800 222 97 92
+							+e.number.d-none.d-lg-block(href='tel:+88002229792') 8 800 222 97 92
 						+tellDD()
 					+e.callback.d-none.d-lg-inline-block(href="#") Обратный звонок
 	// end top-nav
@@ -67,7 +67,7 @@ mixin menuLine()
 			+mnu()
 
 mixin tellDD()
-	+b.tell-dd
+	+b.tell-dd--js
 		+e.inner
 			+tellDDItem('8 (930) 808-85-80', '89308088580', 'бесплатно по России')
 			+tellDDItem('8 (800) 222-97-92', '88002229792', 'городской')

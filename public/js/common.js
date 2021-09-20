@@ -329,7 +329,21 @@ function eventHandler() {
 	function calcVh(v) {
 		var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 		return v * h / 100;
-	}
+	} //-
+
+
+	$('.tell-dd-btn-js').click(function () {
+		console.log('ok');
+		$('.tell-dd--js').toggleClass('active');
+	});
+	document.addEventListener('click', function () {
+		if (!event.target.closest('.tell-dd-btn-js') && !event.target.closest('.tell-dd--js')) {
+			$('.tell-dd--js').removeClass('active');
+		}
+	});
+	document.addEventListener('scroll', function () {
+		$('.tell-dd--js').removeClass('active');
+	}); //
 }
 
 ;
