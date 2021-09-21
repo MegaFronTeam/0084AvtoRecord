@@ -149,19 +149,19 @@ function eventHandler() {
 	}
 
 	//luckyoneJs
-	let topNav = document.querySelector(".top-nav--js");
+	let header = document.querySelector(".header--js");
 	let botFixed = document.querySelector(".fixed-box--js");
 	function calcHeaderHeight() {
-		document.documentElement.style.setProperty('--header-h', `${topNav.offsetHeight}px`);
-		headerH = topNav.offsetHeight;
+		document.documentElement.style.setProperty('--header-h', `${header.offsetHeight}px`);
+		headerH = header.offsetHeight;
 		if(botFixed){
 			document.documentElement.style.setProperty('--bot-fixed-h', `${botFixed.offsetHeight}px`);
 		}
 
-		if (!topNav) return;
+		if (!header) return;
 		window.scrollY > 0
-			? topNav.classList.add('fixed')
-			: topNav.classList.remove('fixed');
+			? header.classList.add('fixed')
+			: header.classList.remove('fixed');
 	}
 	window.addEventListener('resize', calcHeaderHeight, { passive: true });
 	window.addEventListener('scroll', calcHeaderHeight, { passive: true });
@@ -192,7 +192,7 @@ function eventHandler() {
 				this.classList.add('active');
 
 				let index = [...Btns].indexOf(this);
-				console.log(index);
+				//-console.log(index);
 
 				for (let cGroup of contentGroups){
 					let contentItems = cGroup.querySelectorAll('.tabs__content');
@@ -320,7 +320,6 @@ function eventHandler() {
 
 	//-
 	$('.tell-dd-btn-js').click(function (){
-		console.log('ok');
 		$('.tell-dd--js').toggleClass('active');
 	});
 	document.addEventListener('click', function (){
