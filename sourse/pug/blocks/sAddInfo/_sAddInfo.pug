@@ -30,7 +30,7 @@ mixin sAddInfo(data)
 mixin sAddInfoCard(imgNum, title)
 	.col-sm-6.col-lg-3
 		+b.add-card
-			+e.img(href="#")
+			//-+e.img(href="#")
 				img(loading="lazy" src=`img/@2x/sWorksItem-${imgNum}.jpg` alt="")
 			+e.title.h6(href="#")=title
 			+e.content
