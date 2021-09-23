@@ -147,7 +147,7 @@ $h: em(2);
     margin: 0;
 
     & > .menu-item{
-      margin-bottom: rem(10);
+      margin-bottom: rem(12);
       &.menu-item-has-children{
         display: flex;
         flex-wrap: wrap;
@@ -176,8 +176,8 @@ $h: em(2);
       }
       & > a{
         display: block;
-        font-size: rem(26);
-        line-height: calc(32/26);
+        font-size: rem(24);
+        line-height: 1.5;
         text-transform: uppercase;
         color: $white;
       }
@@ -187,7 +187,7 @@ $h: em(2);
     width: 100%;
     order: 1;
     list-style: none;
-    padding: 5px 0 5px 20px;
+    padding: 10px 0 5px 20px;
     margin: 0;
 
     display: none;
@@ -202,9 +202,9 @@ $h: em(2);
       }
       a{
         display: block;
-        font-size: 24px;
-        line-height: 1.5;
-        color: $white;
+        font-size: 20px;
+        line-height: 1.4;
+        color: rgba($white, .6);
       }
     }
   }
@@ -221,7 +221,7 @@ $h: em(2);
     &__tel{
       display: inline-block;
       font-weight: 600;
-      font-size: 24px;
+      font-size: 20px;
       color: $white;
     }
     &__gray{
@@ -272,6 +272,9 @@ $h: em(2);
     }
     &__i-title{
       font-weight: bold;
+      text-transform: uppercase;
+
+
       color: $white;
       @include media-breakpoint-up(sm){
         margin-bottom: 2px;

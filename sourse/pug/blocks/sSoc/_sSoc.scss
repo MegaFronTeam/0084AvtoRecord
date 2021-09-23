@@ -13,6 +13,13 @@
 		h2{
 
 		}
+		p{
+			font-size: rem(15.1);
+			line-height: 1.35;
+			@include media-breakpoint-up(sm){
+				line-height: inherit;
+			}
+		}
 	}
 	&__txt{
 		font-size: rem(15.1);

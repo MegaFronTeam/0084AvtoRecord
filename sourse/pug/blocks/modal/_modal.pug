@@ -15,7 +15,14 @@ mixin modal()
 	+b.modal-car.modal-win(id="modal-car" class="" style="display: none")
 		+b.close-modal--js
 			img(loading="lazy" src='img/svg/cross-black.svg' alt='')
-		+e.img
+		//-
+		+e.slider-wrap
+			.swiper-container.modal-car-slider-js
+				.swiper-wrapper
+					-for(var i = 1; i <= 3; i++)
+						+modalSlide(i)
+				.swiper-pagination
+		//-+e.img
 			img(loading="lazy" src='img/@2x/headerBlock-card-1.jpg' alt="")
 		+e.name Газель
 		+e.descr
@@ -25,3 +32,8 @@ mixin modal()
 			b Москва
 	// #modal-call
 	// end modals
+
+mixin modalSlide(imgNum)
+	.swiper-slide
+		+e.img
+			img(loading="lazy" src=`img/@2x/headerBlock-card-${imgNum}.jpg` alt="")

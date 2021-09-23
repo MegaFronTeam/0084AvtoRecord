@@ -7,7 +7,12 @@ mixin sAddInfo(data)
 					| Дополнительная
 					|
 					span информация
-			+b.tabs.row.sAddInfo-dd-group-js
+			.row.gy-20
+				+sAddInfoCard(1, 'Справка о компании')
+				+sAddInfoCard(2, 'Выполненные проекты')
+				+sAddInfoCard(3, 'Информация для заказчиков	')
+				+sAddInfoCard(4, 'Отзывы клиентов')
+			//-+b.tabs.row.sAddInfo-dd-group-js
 				.col-md-6.col-lg-5.d-none.d-md-block
 					+sAddInfoTabsBtn('Справка о компании')
 					+sAddInfoTabsBtn('Выполненные проекты', 'active')
@@ -20,6 +25,18 @@ mixin sAddInfo(data)
 					+sAddInfoTabsBtnContent('4', 'Отзывы клиентов')
 
 	// end sAddInfo
+
+
+mixin sAddInfoCard(imgNum, title)
+	.col-sm-6.col-lg-3
+		+b.add-card
+			+e.img(href="#")
+				img(loading="lazy" src=`img/@2x/sWorksItem-${imgNum}.jpg` alt="")
+			+e.title.h6(href="#")=title
+			+e.content
+				p=`Производство еврофургонов, эвакуаторов и самосвалов на базе машин отечественных и зарубежных марок, удлинение грузовых автомобилей, а также установка пневмоподвески.${imgNum}`
+			+e.btn(href="#") Подробнее
+
 
 mixin sAddInfoTabsBtn(txt, addClasses='')
 	+e.btn(class=addClasses)=txt

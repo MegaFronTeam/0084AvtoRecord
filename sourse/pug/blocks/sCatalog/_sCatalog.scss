@@ -64,15 +64,22 @@
 				margin-bottom: rem(20);
 			}
 		}
-		a:not(:first-child){
-			color: $gray-550;
-			&:hover{
-				color: $primary;
-			}
+		a:last-child{
+			@extend .arrow-btn;
+			justify-content: center;
 
-			@include media-breakpoint-up(sm){
-				font-size: rem(15.1);
+			@include media-breakpoint-down(xsm){
+				width: 100%;
 			}
+			margin-bottom: rem(20);
+
+			//color: $gray-550;
+			//&:hover{
+			//	color: $primary;
+			//}
+			//@include media-breakpoint-up(sm){
+			//	font-size: rem(15.1);
+			//}
 		}
 	}
 	&__{}

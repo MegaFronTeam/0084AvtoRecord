@@ -330,6 +330,24 @@ function eventHandler() {
 	document.addEventListener('scroll', function (){
 		$('.tell-dd--js').removeClass('active');
 	});
+	//
+	$('.modal-car-slider-js').each(function (){
+
+		let slider = new Swiper(this, {
+			observer: true,
+			observeParents: true,
+			slidesPerView: 'auto',
+			spaceBetween: 20,
+			loop: true,
+
+			pagination: {
+				el: '.swiper-pagination',
+				type: 'bullets',
+				clickable: true,
+			},
+		});
+
+	})
 
 	//
 };

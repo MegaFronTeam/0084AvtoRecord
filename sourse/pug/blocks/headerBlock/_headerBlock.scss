@@ -167,6 +167,10 @@
 	}
 	&__btn{
 		@extend .arrow-btn;
+		@include media-breakpoint-down(xsm){
+			justify-content: center;
+			width: 100%;
+		}
 	}
 	&__{}
 	&__{}
@@ -277,7 +281,7 @@
 			display: var(--par-d, none);
 			@include media-breakpoint-up(sm){
 				display: block;
-				font-weight: 600;
+				//font-weight: 600;
 			}
 
 			font-size: var(--par-fs, inherit);

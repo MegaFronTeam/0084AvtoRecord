@@ -50,16 +50,25 @@
 }
 
 .modal-car{
+	&__slider-wrap{
+		margin-bottom: 20px;
+		@include media-breakpoint-up(xl){
+			margin-bottom: rem(40);
+		}
+	}
+	.swiper-pagination{
+		position: absolute;
+		z-index: 10;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		padding: rem(10) 0;
+	}
 
 	&__img{
 		@extend .accept-ratio-frame;
 		padding-top: calc(220/315 * 100%);
 		border-radius: 5px;
-
-		margin-bottom: 20px;
-		@include media-breakpoint-up(xl){
-			margin-bottom: rem(40);
-		}
 	}
 	&__name{
 		font-weight: bold;

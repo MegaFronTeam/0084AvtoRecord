@@ -102,19 +102,21 @@
 				margin-bottom: 0;
 			}
 
-			font-size: 13px;
+			font-size: rem(13);
 			line-height: 1.5;
 			color: $gray-550;
 
 			&--nums{
 				font-size: 12px;
-				font-weight: 600;
+				//font-weight: 600;
 			}
 		}
 		&__mob-row{
 			padding-top: rem(10);
 		}
 		&__i-title{
+			text-transform: uppercase;
+
 			font-weight: bold;
 			color: $white;
 			@include media-breakpoint-up(sm){
@@ -134,10 +136,14 @@
 			font-weight: 600;
 			font-size: rem(16);
 			color: $white;
+			&:hover{
+				color: $primary;
+			}
 		}
 		&__gray{
 			color: $gray-550;
 			font-size: 9px;
+			//-font-size: rem(13);
 			line-height: 1.2;
 		}
 		//
