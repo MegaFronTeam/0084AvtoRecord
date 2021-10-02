@@ -17,13 +17,13 @@ mixin footer()
 							li: a(href="#") Дополнительные услуги
 							li: a(href="#") Контакты
 				+b.f-address.col-md-4.col-lg-3.col-xl-3.text-center.text-md-start
-					+e.mob-rights.d-md-none
-						| © ООО «Авторекорд»
-						|
-						span.set-curr-year-js 2021
-						|, ИНН 5256171974,
-						br
-						| ОГРН 1185275017124
+					//- +e.mob-rights.d-md-none
+					//- 	| © ООО «Авторекорд»
+					//- 	|
+					//- 	span.set-curr-year-js 2021
+					//- 	|, ИНН 5256171974,
+					//- 	br
+					//- 	| ОГРН 1185275017124
 					+footerTxtItem('Адрес:')
 						p
 							| г. Нижний Новгород,
@@ -31,10 +31,10 @@ mixin footer()
 							| ул. Юлиуса Фучика, д. 60 к15
 					+footerTxtItem('Режим работы:')
 						p будни  8:00 - 17:00
-					+e.item--nums.d-none.d-md-block
+					+e.item--nums
 						p ОГРН 1185275017124
 						p ИНН 5256171974
-					+e.item.d-none.d-md-block
+					+e.item
 						p
 							| © ООО «Авторекор»
 							|

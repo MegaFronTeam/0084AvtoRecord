@@ -668,29 +668,33 @@ body{
     margin-bottom: 20px;
   }
   &__a-items{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
+    
     li{
+      list-style: none;
+      padding: 0;
+      margin: 0;
       margin-bottom: rem(10);
       &:last-child{
         margin-bottom: 0;
       }
     }
     a{
-      width: 100%;
-      @extend .btn;
-      @extend .btn-dark;
+      // width: 100%;
+      @extend .text-body;
+      font-weight: 600;
+      // @extend .btn;
+      // @extend .btn-dark;
       text-align: left;
+      display: inline-block;
 
-      font-size: rem(14);
-      padding: rem(12) rem(10) rem(12) rem(15);
+      // font-size: rem(14);
+      margin-bottom: 1rem;
+      // padding: rem(12) rem(10) rem(12) rem(15);
 
-      border: 2px solid $dark;
-      &:hover{
-        border: 2px solid $primary;
-      }
+      // border: 2px solid $dark;
+      // &:hover{
+      //   border: 2px solid $primary;
+      // }
 
       position: relative;
       z-index: 2;

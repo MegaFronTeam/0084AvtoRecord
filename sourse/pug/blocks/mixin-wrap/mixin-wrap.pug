@@ -25,11 +25,12 @@ mixin pageHead(data)
 								li: a(href="#") Пневмоподвеска
 								li: a(href="#") Газобалонное оборудование
 						if data.hasActual
-							+e.actual-title Актуально по теме
-							+e.UL.a-items
-								li: a(href="#") Бортовые платформы
-								li: a(href="#") Бортовые платформы
-								li: a(href="#") Бортовые платформы
+							+e.actual-title Актуально по теме 
+							+e.a-items
+								ul
+									li: a(href="#") Бортовые платформы
+									li: a(href="#") Бортовые платформы
+									li: a(href="#") Бортовые платформы
 				.col
 					+breadcrumb(...data.breadcrumbs)
 					block
