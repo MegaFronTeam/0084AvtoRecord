@@ -24,13 +24,13 @@ mixin pageHead(data)
 								li: a(href="#") Инструментальный ящик
 								li: a(href="#") Пневмоподвеска
 								li: a(href="#") Газобалонное оборудование
-						if data.hasActual
-							+e.actual-title Актуально по теме 
-							+e.a-items
-								ul
-									li: a(href="#") Бортовые платформы
-									li: a(href="#") Бортовые платформы
-									li: a(href="#") Бортовые платформы
+						//- if data.hasActual
+						//- 	+e.actual-title Актуально по теме 
+						//- 	+e.a-items
+						//- 		ul
+						//- 			li: a(href="#") Бортовые платформы
+						//- 			li: a(href="#") Бортовые платформы
+						//- 			li: a(href="#") Бортовые платформы
 				.col
 					+breadcrumb(...data.breadcrumbs)
 					block

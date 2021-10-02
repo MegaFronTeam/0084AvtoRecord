@@ -1,12 +1,15 @@
-mixin sAddInfo(data)
+mixin sAddInfo(h2)
 	// start sAddInfo
 	+b.SECTION.sAddInfo.section#sAddInfo&attributes(attributes)
 		.container
 			+b.section-title
-				h2
-					| Дополнительная
-					|
-					span информация
+				if !h2
+					h2
+						| Дополнительная
+						|
+						span информация
+				else
+					h2= h2
 			.row.gy-20
 				+sAddInfoCard(1, 'Справка о компании')
 				+sAddInfoCard(2, 'Выполненные проекты')

@@ -55,13 +55,13 @@
 			}
 
 			content: '';
-			width: 12px;
-			height: 12px;
+			width: 16px;
+			height: 16px;
 
 			background-image: url(../img/svg/chevron-down.svg);
 			background-repeat: no-repeat;
 			background-position: center;
-			background-size: cover;
+			background-size: contain;
 		}
 	}
 	&__h-row{
@@ -80,6 +80,9 @@
 	}
 	&__price-col{
 		font-weight: bold;
+		@include media-breakpoint-down(sm){
+			color: $gray-600;
+		}
 	}
 	&__content{
 		display: none;

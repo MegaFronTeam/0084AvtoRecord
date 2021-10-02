@@ -680,7 +680,12 @@ body{
     }
     a{
       // width: 100%;
-      @extend .text-body;
+      // @extend .text-body;
+      color: $body-color;
+      &:hover{
+        color: $primary;
+
+      }
       font-weight: 600;
       // @extend .btn;
       // @extend .btn-dark;
@@ -864,4 +869,8 @@ body{
     width: calc(100% + 10px);
     height: calc(100% + 10px);
   }
+}
+
+.bg-none{
+  background-color: inherit !important;
 }

@@ -2,7 +2,7 @@ mixin footer()
 	+b.FOOTER.footer
 		.container
 			.row.gy-20
-				.col-md-4.col-lg-2.col-xl-3.d-none.d-sm-block
+				.col-md-4.col-lg-2.col-xl-3.d-none.d-md-block
 					+e.logo
 						img(loading="lazy" src="img/svg/logo.svg" alt="")
 					+soc()
@@ -16,7 +16,7 @@ mixin footer()
 							li: a(href="#") Переоборудование в спецтехнику
 							li: a(href="#") Дополнительные услуги
 							li: a(href="#") Контакты
-				+b.f-address.col-md-4.col-lg-3.col-xl-3.text-center.text-md-start
+				+b.f-address.col-md-4.col-lg-3.col-xl-3
 					//- +e.mob-rights.d-md-none
 					//- 	| © ООО «Авторекорд»
 					//- 	|
@@ -27,8 +27,8 @@ mixin footer()
 					+footerTxtItem('Адрес:')
 						p
 							| г. Нижний Новгород,
-							br
-							| ул. Юлиуса Фучика, д. 60 к15
+							//- br
+							| ул.&nbsp;Юлиуса Фучика, д.&nbsp;60&nbsp;к15
 					+footerTxtItem('Режим работы:')
 						p будни  8:00 - 17:00
 					+e.item--nums
@@ -47,16 +47,16 @@ mixin footer()
 								| Обратный
 								br
 								| звонок
-				+b.f-tell.col-md-4.col-lg-3.col-xl-2.col-xxl-auto.ms-xxl-auto.d-none.d-md-block
+				+b.f-tell.col-md-4.col-lg-3.col-xl-2.ms-xxl-auto.d-none.d-md-block
 					+footerTellBl('89308088580', '8 (930) 808-85-80', 'бесплатно по России')
 					+footerTellBl('88002229792', '8 (800) 222-97-92', 'городской')
-					+e.tell-bl--wa
-						+e.wa-row.row.align-items-end
+					+e.tell-bl--wa(href="https://api.whatsapp.com/send/?phone=88312160797").d-inline-block
+						+e.wa-row.row
 							.col-auto
 								+e.wa-img
 									img(loading="lazy" src="img/svg/footer-wa.svg" alt="")
 							.col
-								+e.tel(href="https://api.whatsapp.com/send/?phone=88312160797") WhatsApp
+								+e.tel WhatsApp
 								+e.gray для звонков из зарубежа
 					+b.big-link.link-modal-js(href="#modal-call") Обратный звонок
 

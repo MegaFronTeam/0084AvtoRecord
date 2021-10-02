@@ -96,6 +96,7 @@
 
 			p{
 				margin-bottom: rem(10);
+				max-width: rem(200);
 			}
 
 			& > *:last-child{
@@ -142,8 +143,9 @@
 		}
 		&__gray{
 			color: $gray-550;
-			font-size: 9px;
-			//-font-size: rem(13);
+			// font-size: 9px;
+			// font-size: .8125rem;
+			font-size: rem(13);
 			line-height: 1.2;
 		}
 		//

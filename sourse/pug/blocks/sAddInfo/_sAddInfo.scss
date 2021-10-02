@@ -14,6 +14,11 @@
 	.section-title{
 
 	}
+	@include media-breakpoint-down(md){
+		.add-card__content{
+			// display: none;
+		}
+	}
 	.tabs{
 		&__dd-item{
 			margin-bottom: 10px;
