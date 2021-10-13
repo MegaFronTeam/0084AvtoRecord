@@ -1,6 +1,21 @@
 // start .sWhy
+.sHowMuch,
 .sWhy {
-	background-color: $white;
+
+	z-index: 2;
+	position: relative;
+	&::before{
+		content: '';
+		@include a-cent1(x);
+		width: 200vw;
+		height: 100%;
+		top: 0;
+		background-color: #fff;
+		z-index: -1;
+	}
+}
+.sWhy {
+	// background-color: $white;
 
 	//position: relative;
 	//width: 100vw;

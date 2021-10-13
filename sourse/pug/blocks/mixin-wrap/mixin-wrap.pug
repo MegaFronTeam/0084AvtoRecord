@@ -16,11 +16,12 @@ mixin pageHead(data)
 				if !data.noSidebar
 					+e.sb-col.col-lg-3.d-none.d-lg-block
 						+e.UL.dd-menu.sb-dd-menu-js
-							+pageHeadSbItem('Справка о компании', 'active')
+							+pageHeadSbItem('Справка о компании', 'active').menu-item-has-children
 							+pageHeadSbItem('Изготовление еврофургонов')
-							+pageHeadSbItem('Бортовые платформы')
-							+pageHeadSbItem('Спецтехника')
-							+pageHeadSbItem('Дополнительные опции', 'active')
+								
+							+pageHeadSbItem('Бортовые платформы').menu-item-has-children
+							+pageHeadSbItem('Спецтехника').menu-item-has-children
+							+pageHeadSbItem('Дополнительные опции', 'active').menu-item-has-children
 								li: a(href="#") Инструментальный ящик
 								li: a(href="#") Пневмоподвеска
 								li: a(href="#") Газобалонное оборудование
@@ -40,7 +41,7 @@ mixin pageHead(data)
 							P Производство еврофургонов, эвакуаторов и самосвалов на базе машин отечественных и зарубежных марок, удлинение грузовых автомобилей, а также установка пневмоподвески, ГБО и п рочими видами усовершенствования коммерческого транспорта.
 
 mixin pageHeadSbItem(headTxt, activeClass='')
-	li(class=activeClass)
+	li(class=activeClass)&attributes(attributes)
 		a(href="#")=headTxt
 		ul(class=activeClass)
 			if block

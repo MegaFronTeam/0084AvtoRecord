@@ -58,8 +58,14 @@
 		b{
 			font-weight: 600;
 		}
+		a,
 		span{
+			margin-left: rem(5);
 			color: $gray-550;
+			display: inline-block;
+			@include media-breakpoint-down(md){
+				margin-top: rem(5);
+			}
 		}
 
 		&--mb{

@@ -560,20 +560,26 @@ body{
         align-items: center;
         justify-content: space-between;
 
-        &:after{
-          @include mt();
-          flex-shrink: 0;
-          transform: rotateX(var(--chevron-rot, 0deg));
+        
+      }
+      &.menu-item-has-children{
+        & > a{
+         &:after{
+           @include mt();
+           flex-shrink: 0;
+           transform: rotateX(var(--chevron-rot, 0deg));
+   
+           content: '';
+           width: rem(12);
+           height: rem(12);
+           margin-left: rem(5);
+   
+           background-image: url(../img/svg/chevron-down.svg);
+           background-repeat: no-repeat;
+           background-position: center;
+           background-size: contain;
+         }
 
-          content: '';
-          width: rem(12);
-          height: rem(12);
-          margin-left: rem(5);
-
-          background-image: url(../img/svg/chevron-down.svg);
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: contain;
         }
       }
       & > ul{
