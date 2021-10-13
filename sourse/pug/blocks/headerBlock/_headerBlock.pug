@@ -34,9 +34,11 @@ mixin headerBlockCard(imgNum, addClasses='', title='СПЕЦТЕХНИКА', txt
 
 mixin headerBlockSlide()
 	.swiper-slide
-		+e.row.row.gx-0
-			.col-sm-7.col-lg-6
-				+e.content
-					+e.title Переоборудование  автомобилей
-			+e.img-col.col-sm-5.col-lg-6.d-none.d-sm-block
-				img(loading="lazy" src="img/@2x/headerBlock-img.jpg" alt="")
+		a(href="#") 
+			+pic('headerBlock-img.jpg')
+		//- +e.row.row.gx-0
+		//- 	.col-sm-7.col-lg-6
+		//- 		+e.content
+		//- 			+e.title Переоборудование  автомобилей
+		//- 	+e.img-col.col-sm-5.col-lg-6.d-none.d-sm-block
+				//- img(loading="lazy" src="img/@2x/headerBlock-img.jpg" alt="")
