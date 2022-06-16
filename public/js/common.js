@@ -171,6 +171,9 @@ function eventHandler() {
 			el: '.swiper-pagination',
 			type: 'bullets',
 			clickable: true
+		},
+		autoplay: {
+			delay: 3000
 		}
 	});
 	let cTabs = document.querySelectorAll('.tabs');

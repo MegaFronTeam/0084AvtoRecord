@@ -37,6 +37,16 @@
 				background-color: #FF0000;
 			}
 		}
+		&.soc-rutube{
+			&:hover{
+				background-color: #081831;
+			}
+		}
+		&.soc-ya-zen{
+			&:hover{
+				background-color: $black;
+			}
+		}
 	}
 }
 
